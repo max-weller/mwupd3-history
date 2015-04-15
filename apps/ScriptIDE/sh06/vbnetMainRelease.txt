@@ -1,0 +1,54 @@
+Imports scriptHostLib
+
+Public Module ProgramMain
+  Public Shared WithEvents sH As ScriptHost
+  
+  Public Shared myZZ As cls_scriptHelper
+  
+  Public Shared Sub Main(args() As String)
+    sH = ScriptHost.Instance
+    
+    sH.setIdeHelper(cls_IDEHelperMini.GetSingleton())
+    cls_IDEHelperMini.GetSingleton().initGlobObject(cls_IDEHelperMini.GetSingleton().GetSettingsFolder()+"scriptPara\{ScriptClass}.para.txt")
+    Dim ref As Object = New q_scriptClass.{ScriptClass}
+    sH.initReleaseMode("{ScriptClass}", ref)
+    
+    ' Initialize ScriptHelper
+    myZZ = New cls_scriptHelper()
+    myZZ._scriptClassName = "{ScriptClass}"
+    ref.zz_setHlpObject(myZZ)
+    
+    ' Initialize Breakpoints
+    '' ref.zz_BBreset(1000)
+    '' Dim bbs() As String = myZZ.InterProc.GetData("siaCodeCompiler", "_Debug_QueryBreakpoints", "{ScriptClass}").Split(","c)
+    '' myZZ.trace(0,"","BBcount:" ,bbs.length)
+    '' For Each bb As String In bbs
+    ''   If bb <> "" Then ref.zz_BBsetLine(bb, True)
+    '' Next
+    
+    ref.AutoStart()
+    
+    #If TYPE = "winexe2" Or TYPE = "winforms2" Then
+    
+    #End If
+    #If TYPE = "winexe" Then
+    If cls_IDEHelperMini.GetSingleton().tbScriptWin.Count > 0 Then
+      Dim frm As Object
+      For Each val As Object In cls_IDEHelperMini.GetSingleton().tbScriptWin.Values
+        frm=val
+        Exit For
+      Next
+      '' myZZ.trace(0,"","Form:" + frm.tostring)
+      System.Windows.Forms.Application.Run(frm)
+    End If
+    #End If
+  End Sub
+  
+  '' Private Shared Sub sH_HighlightLineRequested(ByVal className As String, ByVal functionName As String, ByVal lineNumber As Integer, ByVal reason As scriptHostLib.HighlightLineReason) Handles sH.HighlightLineRequested
+  ''   myZZ.InterProc.SendCommand("siaCodeCompiler", "_Debug_HighlightLineRequested", className & "|##|" & functionName & "|##|" & lineNumber & "|##|" & reason & "|##|")
+  ''   
+  '' End Sub
+  
+End Class
+
+

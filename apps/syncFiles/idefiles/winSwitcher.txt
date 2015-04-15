@@ -1,0 +1,15 @@
+Suche	ToolBar|##|tbglobsearch
+Debug	ToolBar|##|tbdebug
+Konsole	ToolBar|##|tbconsole
+-------------------------------
+FTP	Addin|##|siaCommonProtocols.frmTB_ftpExplorer
+Webbrowser	Toolbar|##|tbScriptWin|##|webbrowser1.tab
+Lokale Dateien	Addin|##|siaCommonProtocols.frmTB_fileExplorer
+Sync	Addin|##|siaScriptSyncMini.frmTB_scriptSync
+RTF	Addin|##|siaRTF.frmTB_twAjaxExplorer
+-------------------------------
+Projekte	Addin|##|siaSolution.frmTB_solutionExplorer
+-------------------------------
+Geöffnete Tabs	ToolBar|##|tbopenedfiles
+-------------------------------
+Indexliste	ToolBar|##|tbindexlist

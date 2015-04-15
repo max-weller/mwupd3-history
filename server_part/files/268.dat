@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.vb">
+  <Language>vbscript</Language>
+  
+  <!--SCStyle id="5" fgcolor="#000000" bgcolor="#D4E4F0" /> <'preproc-->
+  
+  <SCStyle id="1" fgcolor="#555555" bgcolor="#EFEFEF" style="italic" />  <!-- comment -->
+  <SCStyle id="2" fgcolor="#CC9900" bgcolor="#FFFFFF" />  <!-- number -->
+  <SCStyle id="4" fgcolor="#A31515" bgcolor="#FFFFFF" />  <!-- string -->
+  <SCStyle id="6" fgcolor="#A68F21" bgcolor="#FFFFFF" style="bold" />  <!-- operator -->
+  
+  <SCStyle id="33" fgcolor="#FFFFFF" bgcolor="#445370" />  <!-- line Numbers -->
+  
+  <SCStyle id="5" fgcolor="#000000" bgcolor="#D4E4F0" />  <!-- preproc -->
+  
+  <Margin id="0" width="20" /> <!-- Breakpoint-Spalte anzeigen -->
+</ScintillaLanguageConfig>

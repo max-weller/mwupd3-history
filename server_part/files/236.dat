@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AddIn name        = "siaCommonProtocols"
+       displayname = "CommonProtocols"
+       author      = "Max Weller"
+       url         = "http://www.codeproject.com/TBD"
+       description = "Procotol handlers for local files and FTP">
+
+  <Manifest>
+    <!-- unique name of the AddIn, used when others AddIns want to reference this AddIn -->
+    <Identity name="ScriptIDE3.siaCommonProtocols" version = "@EntryAssemblyVersion"/>
+    <!--
+		others AddIns can specify dependencies like this:
+		<Dependency addin="ICSharpCode.Core.Demo" version="1.0.0.x-1.0.0.y"/>
+		-->
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="siaCommonProtocols.dll"/>
+  </Runtime>
+
+  <Path name="/Workspace/ProtocolHandlers">
+    <Class id="Local" protocol="loc:" class="siaCommonProtocols.LocalFileHandler" />
+    <Class id="FTP" protocol="ftp:" class="siaCommonProtocols.FTPHandler" />
+  </Path>
+
+  <Path name="/Workspace/ToolWindows">
+    <ToolWindow id="LocalFileBrowser" name="Lokale Ordner" dockhint="Right" class="siaCommonProtocols.frmTB_fileExplorer" />
+    <ToolWindow id="FTPBrowser" name="FTP Browser" dockhint="Right" class="siaCommonProtocols.frmTB_ftpExplorer" />
+  </Path>
+
+  <Path name="/OptionsDialog/Pages">
+    <Class id="FtpHosts" class="siaCommonProtocols.ctl_options"
+           path="Protokolle/FTP/Hosts"
+           name="File Transfer Protocol (FTP) Hosts" />
+    
+  </Path>
+
+  <Path name="/Workspace/ToolbarCommands">
+    <Toolbaritem id="Window.ShowLocalBrowser" text="Local" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/shell32_235-16.png" />
+    <Toolbaritem id="Window.ShowFTPBrowser" text="FTP" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/iexplore_32542-16.png" />
+
+
+  </Path>
+
+
+</AddIn>

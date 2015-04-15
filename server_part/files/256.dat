@@ -1,0 +1,5 @@
+HexEdit.ShowActiveFile	siaHexEdit	act	2	Button	http://mw.teamwiki.net/docs/img/win-icons/App-16.png
+HexEdit.FileOpen	siaHexEdit	Datei im HEX-Editor öffnen ...	2	Button	http://mw.teamwiki.net/docs/img/win-icons/HexOpen.png
+				Separator	
+				Separator	
+Tools.ConvertFile	siaCodeConversion	Konvertieren	3	Button	http://mw.teamwiki.net/docs/img/win-icons/Microsoft_32512-16.png

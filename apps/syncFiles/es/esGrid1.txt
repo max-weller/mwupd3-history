@@ -1,0 +1,14 @@
+TYPE	id / cmd	nicName	fullName	Titel	GRID	defaulWidth	gridBgColor	textForeColor	DIALOG	edit/view/hidden	labBgColor	labForeColor	textBgColor	textForeColor	HELP	toolTip	text1	text2	icon	
+1											xxx			1995-01-01	1999-01-02	SONDER(es)				
+dialog			Anrede / titel	titel													ich bin die etwas ausführlicher Erlärung ||| Zeilenumbruch fehlt noch||| scrollbars fehlen noch			
+dialog			vorname	hinz und kunz ?													Vornamen sind wichtig 			
+dialog			name	huber oder mayer ?								1	2	3	4	5	6	7	8	
+dialog			PLZ	...5-stellig !								a	b	c	d	e	hier wäre ein link auf PLZ-Verzeichnis praktisch --- also ein RTF verwenden ?  und / oder Browser integrieren ???	g	h	
+1																				
+1																				
+1																				
+1																				
+dialog			schuhgröße	38-46													HintergrundFarbe der miniHilfe einstellbar machen ???			
+dialog			schuhgröße	noch größer ???													OK - knopf fehlt noch 			
+dialog			schuhgröße	38-46													Titelbar ohne hintergrund ???			
+																				

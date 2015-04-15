@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.cs">
+
+  <Language>cs</Language>
+
+  <SCStyle id="9" fgcolor="#000000" bgcolor="#D4E4F0" /> <!--'preproc-->
+
+</ScintillaLanguageConfig>

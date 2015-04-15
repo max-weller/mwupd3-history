@@ -1,0 +1,161 @@
+#Implements IAddinConnect
+#Para DebugMode Internal
+#Para SilentMode true
+
+'#Language vb
+
+#AddinData
+<AddIn name        = "myScriptAddin"
+       displayname = "Script-Add-in Test"
+       author      = "Max Weller"
+       url         = "http://scriptide.teamwiki.net/"
+       description = "Test Add-in"
+       icon        = "">
+   
+  <Manifest>
+    <Identity name="myScriptAddin" version = "1.0.0.0"/>
+  </Manifest>
+ 
+  <Path name="/Workspace/ToolbarCommands">
+    <Toolbaritem id="Tools.TestItem1"      text="TestItem1"             kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_ESCAPE"     text="Tools.key_ESCAPE"      kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_F1"         text="Tools.key_F1"          kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_F2"         text="Tools.key_F2"          kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_F3"         text="Tools.key_F3"          kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_F4"         text="Tools.key_F4"          kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_F5"         text="Tools.key_F5"          kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_AltGrShift" text="Tools.key_AltGrShift"  kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+    <Toolbaritem id="Tools.key_RETURN"     text="Tools.key_RETURN"      kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FormRunHS.png" />
+  </Path>
+
+</AddIn>
+#EndData
+
+
+#Reference System.Windows.Forms.dll
+#Reference System.Data.dll
+#Reference System.Drawing.dll
+#Reference WeifenLuo.WinFormsUI.Docking.dll
+#Reference TenTec.Windows.iGridLib.iGrid.dll
+#Reference siaIDEMain.dll
+
+#Imports System.Windows.Forms
+#Imports System.Data
+#Imports System.Drawing
+#Imports ScriptIDE.Core
+#Imports ScriptIDE.ScriptHost
+#Imports ScriptIDE.ScriptWindowHelper
+#Imports Tentec.Windows.iGridLib
+
+Dim IDE As IIDEHelper
+  
+  Public Sub Connect(ByVal application As Object, ByVal connectMode As Core.ConnectMode, ByVal addInInst As Core.AddinInstance, ByRef custom As Object) Implements Core.IAddinConnect.Connect
+    IDE = Main.cls_IDEHelper.Instance
+    'MsgBox("es22: OnConnect",,"Test-Addin")
+    ' monitorAdd("ENTER")
+  End Sub
+ 
+  
+  Public Sub Disconnect(ByVal removeMode As Core.DisconnectMode, ByRef custom As Object) Implements Core.IAddinConnect.Disconnect
+  End Sub
+
+
+  Public Function GetAddinWindow(ByVal PersistString As String) As Form Implements IAddinConnect.GetAddinWindow
+    Return Nothing
+  End Function
+
+
+  Public Sub OnNavigate(ByVal kind As Core.NavigationKind, ByVal source As String, ByVal command As String, ByVal args As Object, ByRef returnValue As Object) Implements Core.IAddinConnect.OnNavigate
+    ''MsgBox(command,,"es333: Test-Addin")
+    ' monitorAdd("ACTION (onNavigate 456)")
+    ' monitorAdd("ACTION: "+source)
+    
+    ' monitorAdd("ACTION: "+command)
+     monitorCmd(command)
+  End Sub
+ 
+ 
+
+  Public Sub OnAddinUpdate(ByVal addinChanged As String, ByRef custom As Object) Implements Core.IAddinConnect.OnAddinUpdate
+  End Sub
+
+
+  Public Sub OnBeforeShutdown(ByRef cancel As Boolean, ByRef custom As Object) Implements Core.IAddinConnect.OnBeforeShutdown
+  End Sub
+
+
+  Public Sub OnStartupComplete(ByRef custom As Object) Implements Core.IAddinConnect.OnStartupComplete
+    ''Msgbox("mwAddInn-OnStartupComplete")
+  End Sub
+
+
+dim globMonitorRef as object
+
+'-->
+'--> outMONITOR
+
+ sub clearAll()
+   on error resume next
+   monitorClear()
+   zz.traceClear()
+   zz.printLineReset()
+   err.number=0
+end sub
+
+
+
+sub setMonitorRef()
+  'on error resume next
+  globMonitorRef = zz.scriptClass("es_testLabor")
+  trace "globMonitorRef", globMonitorRef.name
+end sub
+
+: function getMonitorRef()
+  on error resume next
+  if globMonitorRef is nothing then
+    globMonitorRef = zz.scriptClass("es_testLabor")
+  end if
+  return globMonitorRef
+end function
+
+: sub monitorClear()
+   on error resume next
+   globMonitorRef.clear()
+   err.number=0
+end sub
+
+
+: sub monitorAdd(para1 as string, optional para2 as string="")
+   on error resume next
+   setMonitorRef()   
+   globMonitorRef.add(para1+": "+para2+"<--")
+   err.number=0
+end sub
+
+: sub monitorCmd(para1 as string)
+   on error resume next
+   setMonitorRef()   
+   globMonitorRef.cmd(para1)
+   err.number=0
+end sub
+
+: sub statustext(para1 as string, optional para2 as string="")
+   on error resume next
+   'globMonitorRef.statustext(para1+": "+para2+"<--")
+   globMonitorRef.statustext(para1+"<--")
+   err.number=0
+end sub
+
+: sub statustext_reset()
+   on error resume next
+   globMonitorRef.statustext_reset()
+   err.number=0
+end sub
+
+
+: sub errorText(para as string)
+   on error resume next
+   globMonitorRef.errorText(para)
+   err.number=0
+end sub
+

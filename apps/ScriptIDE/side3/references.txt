@@ -1,0 +1,15 @@
+
+#Reference System.Windows.Forms.dll
+#Reference System.Data.dll
+#Reference System.Drawing.dll
+#Reference WeifenLuo.WinFormsUI.Docking.dll
+#Reference TenTec.Windows.iGridLib.iGrid.dll
+
+#Imports System.Windows.Forms
+#Imports System.Data
+#Imports System.Drawing
+#Imports ScriptIDE.Core
+#Imports ScriptIDE.ScriptHost
+#Imports ScriptIDE.ScriptWindowHelper
+#Imports Tentec.Windows.iGridLib
+

@@ -1,0 +1,17 @@
+
+___&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;_&nbsp;&nbsp;&nbsp;____&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;\/&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;(_)&nbsp;&nbsp;\/&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;.&nbsp;&nbsp;.&nbsp;|_&nbsp;&nbsp;&nbsp;_|&nbsp;|&nbsp;|_&nbsp;_|&nbsp;.&nbsp;&nbsp;.&nbsp;|&nbsp;___&nbsp;&nbsp;_&nbsp;__&nbsp;&nbsp;
+|&nbsp;|\/|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;__|&nbsp;|&nbsp;|\/|&nbsp;|/&nbsp;_&nbsp;\|&nbsp;'_&nbsp;\&nbsp;
+|&nbsp;|&nbsp;&nbsp;|&nbsp;|&nbsp;|_|&nbsp;|&nbsp;|&nbsp;|_|&nbsp;|&nbsp;|&nbsp;&nbsp;|&nbsp;|&nbsp;(_)&nbsp;|&nbsp;|&nbsp;|&nbsp;|
+\_|&nbsp;&nbsp;|_/\__,_|_|\__|_\_|&nbsp;&nbsp;|_/\___/|_|&nbsp;|_|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+Version 2.0
+* Jetzt mit Unterstützung beliebig vieler Bildschirme
+* History der letzten verwendeten Bilder
+* Bilder strecken oder zentrieren
+* Einstellbare Hintergrundfarbe
+* Warnung bei zu kleinen Bildern
+

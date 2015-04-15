@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.php">
+
+  <Language>html</Language>
+
+  <SCStyle id="5" fgcolor="#000000" bgcolor="#D4E4F0" /> <!--'preproc-->
+  
+  <!--  ' HTML -->
+  <SCStyle id="0" fgcolor="#000000" bgcolor="#FFFFFF" /> <!-- 'txt -->
+  <SCStyle id="1" fgcolor="#86016F" bgcolor="#FFFFFF" style="bold" /> <!-- 'known tag 790069# -->
+  <SCStyle id="2" fgcolor="#FF00FF" bgcolor="#FFFFFF" style="bold" /> <!-- 'unknown tag -->
+  <SCStyle id="3" fgcolor="#000000" bgcolor="#FFFFFF" style="bold" /> <!-- 'attribut -->
+  <SCStyle id="4" fgcolor="#FF0000" bgcolor="#FFFFFF" style="bold" /> <!-- 'unknown attr -->
+  <!--  'QQ.setSCStyle 5" fgcolor="#000033" bgcolor="#FFFFFF"  'num -->
+  <SCStyle id="6" fgcolor="#0C0C80" bgcolor="#FFFFFF" /> <!-- 'double quot str 0C0C80 -->
+  <SCStyle id="7" fgcolor="#0C0C80" bgcolor="#FFFFFF" /> <!-- 'single quot str -->
+  <SCStyle id="8" fgcolor="#000000" bgcolor="#FFFFFF" /> <!-- 'other txt inside tag -->
+  <SCStyle id="9" fgcolor="#666666" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="10" fgcolor="#FF0000" bgcolor="#FFFFFF" /> <!-- 'entity -->
+  <SCStyle id="11" fgcolor="#990080" bgcolor="#FFFFFF" /> <!-- 'xml tag end /> -->
+
+
+  <!--  ' JAVASCRIPT -->
+  <SCStyle id="41" fgcolor="#000000" bgcolor="#F3F3FF" style="eol" /> <!-- 'script -->
+  <SCStyle id="42" fgcolor="#444444" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="43" fgcolor="#444444" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="44" fgcolor="#444444" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="45" fgcolor="#007F7F" bgcolor="#F3F3FF" /> <!-- 'num -->
+  <SCStyle id="46" fgcolor="#000000" bgcolor="#F3F3FF" /> <!-- 'word -->
+  <SCStyle id="47" fgcolor="#000000" bgcolor="#F3F3FF" style="bold" /> <!-- 'keyword -->
+  <SCStyle id="48" fgcolor="#790000" bgcolor="#F3F3FF" /> <!-- 'double quot str -->
+  <SCStyle id="49" fgcolor="#790000" bgcolor="#F3F3FF" /> <!-- 'single quot str -->
+  <SCStyle id="50" fgcolor="#000000" bgcolor="#F3F3FF" /> <!-- 'symbol -->
+  <SCStyle id="51" fgcolor="#000000" bgcolor="#F3F3FF" /> <!-- 'EndOfLine -->
+  <SCStyle id="52" fgcolor="#000000" bgcolor="#FFBBB0" /> <!-- 'Regex -->
+  <!--  'QQ.setSCStyle 40" fgcolor="#000000" bgcolor="#cccccc"  'script -->
+
+
+
+
+  <!--  ' PHP farben -->
+  <SCStyle id="18" fgcolor="#000033" bgcolor="#FFEEAA" style="eol"  />
+  <SCStyle id="118" fgcolor="#000033" bgcolor="#FFFFFF"  />
+  <SCStyle id="119" fgcolor="#008300" bgcolor="#FFFFFF" /> <!-- 'string -->
+  <SCStyle id="120" fgcolor="#008300" bgcolor="#FFFFFF" /> <!-- 'string -->
+  <SCStyle id="121" fgcolor="#000000" bgcolor="#FFFFFF" style="bold" /> <!-- 'keyword -->
+  <SCStyle id="122" fgcolor="#CC9900" bgcolor="#FFFFFF" style="bold" /> 
+  <SCStyle id="123" fgcolor="#17179E" bgcolor="#FFFFFF" /> <!-- 'var -->
+  <SCStyle id="124" fgcolor="#666666" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="125" fgcolor="#666666" bgcolor="#EFEFEF" style="italic" /> <!-- 'kom -->
+  <SCStyle id="126" fgcolor="#17478E" bgcolor="#FFFFFF" /> <!-- 'var in string -->
+  <SCStyle id="127" fgcolor="#000000" bgcolor="#FFFFFF" /> 
+  
+  
+</ScintillaLanguageConfig>

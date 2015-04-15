@@ -1,0 +1,779 @@
+dim appIcon as string ="http://es.teamwiki.net/docs/icons/ausrufezeichen.png"
+dim appIcon as string ="http://es.teamwiki.net/docs/icons/NeedleLeftYellow.png"
+
+http://icons3.iconfinder.netdna-cdn.com/data/icons/humano2/72x72/actions/media-playback-stop.png
+http://icons3.iconfinder.netdna-cdn.com/data/icons/humano2/72x72/actions/media-playback-pause.png
+http://icons3.iconfinder.netdna-cdn.com/data/icons/humano2/72x72/actions/edit-delete.png
+http://icons3.iconfinder.netdna-cdn.com/data/icons/humano2/72x72/places/emptytrash.png
+
+
+
+
+
+
+
+'-->
+'--> NEXTxxx : ugb - max
+
+
+
+'--> 
+'--> NEXT4: codeList / ugb
+
+
+
+'es_codeList
+
+'http://support.microsoft.com/kb/301248
+'system.data dataset update
+
+
+'' S u b autoStart()
+''   Dim ideHelper = CreateObject("IdeHelper.Application")
+''   Dim inst = ideHelper.getSIRef(ideHelper.getSIInstanceID("default"))
+''   Dim scriptIDE = inst.getApplication()
+''   Dim tab = scriptIDE.getActiveTab()
+''   MsgBox(TypeName(tab))
+''   MsgBox (scriptIDE.getActiveTabFilespec())
+''   
+''   Dim sc = tab.RTF
+''   MsgBox(TypeName(sc))
+''   
+''   Msgbox ("lineNum" & sc.Lines.Current.number)
+'' 
+''   
+'' End Sub
+'' 
+
+
+'' 'pfad richtig verwalten
+'' Dim RESULT As System.String
+'' RESULT = ZZ.IDEHelper.GetSettingsFolder()
+
+
+
+'' 
+'dim appIcon as string ="http://es.teamwiki.net/docs/icons/128email.png"   'ugb_email_mischer
+'dim appIcon as string ="http://es.teamwiki.net/docs/icons/Help-File.png"
+'dim appIcon as string ="http://es.teamwiki.net/docs/help.gif"
+'dim appIcon as string ="http://es.teamwiki.net/docs/icons/NeedleLeftYellow.png"
+'dim appIcon as string ="http://es.teamwiki.net/docs/icons/ausrufezeichen.png"
+'dim appIcon as string ="http://es.teamwiki.net/docs/icon24/Good-mark.png"
+'dim appIcon as string =""
+
+
+'http://www3.ndr.de/resources/meta/ndr_fs_nds_hi_wmv.asx
+
+
+
+'--> UGB
+
+' [_] 
+' [_] ugb-ADR auf allen Plätzen installieren
+' [_] 
+' [_] tm: Auswertung 1. Quartal
+' [_] 
+' [_] 2 x ü
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [x] hörner: teamwiki 
+' [_] 
+' [_] kong: adr und SVS auf notebook
+' [_] 
+' [_] Max: icon ugabNeutral
+' [_] mail von hörner weiterleiten
+' [_] 
+' [_] 
+' [_] 
+' [_] --------------------------------
+' [x] mk: Rückschreiben
+' [x] tel: Hausmeister internet
+' [x] eMail Ackermann hrz: Kurt.Ackermann@hrz.uni-giessen.de
+' [x] tm: Zettel Beamer
+' [_] --------------------------------
+' [_] 
+' [x] newsletter...
+' [_] odner umbaggern
+' [_] auslesen
+' [_] austragen
+' [_] massenMailer einrichten
+' [_] testMail senden
+' [_] links pruefen
+' [_] alles auf die Leitung
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+'-->Max - Errors
+' [_] 
+' [_] scriptKlassen erst nach erfolgreicher compilierung zerstoeren
+' [_] 
+' [_] Reflector per script navigieren
+' [_] Reflector geht nach schließen nicht mehr auf
+' [_] 
+' [_] rtfSpezialControl
+' [_] 
+' [_] 
+' [_] 
+' [_] Fragen:
+' [_] 
+' [_] panelMain.AddScintillaControlWithSyntaxHighlightingAndIntelliSense("sc1")
+' [_] 
+' [_] ZeilenKommentar: js = //, ...andere Sprachen ???
+' [_] 
+' [x] userToolbar: doppelte prefixe
+' [x] openTabs: syncronisiert nicht mehr
+' [x] syntaxHighlighter: wie aktivieren ? -> konfigurierbar ?
+' [_] 
+
+
+
+'--> Neu - Ideen
+
+' [_] 
+' [_] sideBarPlus
+' [_] 
+' [_] crossRef
+' [_] 
+' [x] altGrShift: toggle sideBar ???
+' [_] 
+' [_] Modus: nur History und bookmarks offen ... geht gut
+' [_] 
+' [_] iconBar: als spezialWindow mit toggleSidebar analog zum bisherigen schnelltester
+' [_] 
+' [_] 
+
+
+'-->Hauptschalter 
+' [_] 
+' [_] rClick: toggleSize
+' [_] 
+' [_] - urlBar  ... tiefer setzen
+' [_] - googleSuche
+' [_] onENTER
+' [_] 
+' [_] flowContainer: linkLabels
+' [_] 
+' [_] schönen verschiebeBalken suchen
+' [_] 
+' [_] onResize: am oberen Rand einrasten
+' [_] 
+' [_] 
+' [_] 
+' [_] showMainBrowser
+' [_] showSideBarBrowser
+' [_] 
+' [_] navigate(sideBar) --> mainBrowser
+' [_] toogle toolBrowser
+' [_] 
+' [_] vertikales Design ???
+' [_] 
+' [_] urlBar als popup ??? 
+' [_] 
+' [_] webBrowser: hideInTaskBar
+' [_] 
+' [_] BookmarksSave: zeitSchleife(60 sec ?)
+' [_] feedBack: dirty(bbokmarks)
+' [_] 
+' [_] 
+' [_] 
+' [_] Links:
+' [_] - iconFinder
+' [_] - pnboards
+' [_] - webStore
+' [_] - google
+' [_] - wetter ???
+' [_] - converter
+' [_] - jdDecoder
+' [_] 
+' [_] 
+' [_] 
+' [_] tools:
+' [_] - scriptIde: show, hide, pringToFront
+' [_] - interProc
+' [_] - clipboardViewer
+' [_] ... aus DebugWin heraus kopieren
+' [_] 
+' [_] webBrowser: Fenster umbauen
+' [_] 
+' [_] 
+' [_] 
+' [_] targetBrowser: checkBoxen ???
+' [_] 
+' [_] History(Url, suche als dropDown ???)
+' [_] 
+' [_] 
+' [_] flowContainer: miniBookmarks
+' [_] linkLabels:    BrowserManagement ???
+' [_] 
+' [_] ??? bringToFront wie geht das ???
+' [_] 
+' [_] - interprog erweitern
+' [_] 
+' [_] 
+' [_] ...pinboard: Web: quickRef, recherche
+' [_] ...pinboard: hauptschalter - icon - url
+' [_] 
+' [_] 
+' [_] 
+' [_] ----------------------------------------
+' [_] 
+' [x] eventhandler auf neuesten Stand bringen
+' [x] testUrls eintragen
+' [x] - iconBar: toolWindow,urls
+' [x] iconBar integrieren
+
+
+'--> Lib: toolWindowManagement ???
+' [_] 
+' [_] zentrales Script(für statusVar
+' [_] und ein Modul zur Weiterleitung ???
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+
+'--> Neue Baustellen
+' [_] 
+' [x] Bookmarks übers web speichern
+' [x] Bookmarks übers web wieder lesen
+' [_] ??? Bookmarks: aktuelle func hervorheben ???
+' [_] 
+' [_] 
+' [_] internSuche: sort + highlight
+' [_] 
+' [_] ---------------------------------------
+' [_] ... Hauptschalter
+' [_] 
+' [_] 
+' [_] ----------------------------------------
+' [_] Bookmarks über shiftUp/Down navigieren
+' [_] Bookmarks: contr. 1-9
+' [_] bookmarks: execute ???
+' [_] bookmarks: colors ???
+' [_] 
+' [_] 
+' [_] toggle dualFenster(code) ... checkState ?
+' [_] 
+' [_] 
+' [_] 
+' [_] userToolbar mit 24x24 pixel ?
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+
+
+'-->codeListe 
+' [_] 
+' [_] contr. Up/Down auswerten/anschließen
+' [_] 
+' [_] codeList: saveExpandData: --> keine leeren Eintäge
+' [_] codeList: saveExpandData: --> validate
+' [_] 
+' [_] dragIn defLine(codeList)
+' [_] dragIn defLine(Bookmarks)
+' [_] dragIn defLine(History)
+' [_] 
+' [_] navigate(lastEventHandler)
+' [_] insert(lastUnknownEventHandler)
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] contr.Click: codeLine / reflector
+' [_] 
+' [x] NEUE FORM: History ...rot/gruen
+' [_] 
+' [_] scintilla: rClick - ContextMenue killen
+' [_] 
+' [_] 
+' [_] SPEED: ... per getTime refreshrate begrenzen
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [x] - Feldnamen auf const umbauen
+' [_] 
+' [_] highlighter: ... aehnlich wie state ???
+' [_] - stillgelegter Code: ...grau
+' [_] - highlightColor per endKommentar
+' [_] - highlight(color 1-5) ueber collection
+' [_] 
+' [x] contr.Click: ??? wie die selection neutralisieren 
+' [_] 
+' [x] VALIDATE
+' [x] - validate / refresh: wie genau ???
+' [x] - vergleiche sourceLine mit trefferZeile: NOK: refresh
+' [x] - ...sync: validate
+' [_] 
+' [_] ----------------------------------------------------
+' [x] - splitterbar: collaps
+' [x] - collection umbuen(voller Pfad)
+' [x] - speichern / lesen (globPara ?)
+' [x] reload: getActFileSpec, read, codelist
+' [x] rememberCollapsState
+' [x] RESTORE(listState)
+' [x] collection umbauen auf vollen Pfad und speichern ???
+' [x] syncCurCodePosition: timer getActLine
+
+
+
+
+'-->Design
+
+
+' [_] 
+' [_] farben als properties in gridEx
+' [_] 
+' [_] verschieden farbSchematas zuweisen
+' [_] 
+' [_] FarbBerechnung innerhalb loop entfernen
+' [_] 
+' [_] tempExpand/collaps: highlighterFarben nicht ueberschreiben
+' [_] 
+' [_] 
+
+
+
+'-->Fenster-Verwaltung
+
+' [_] 
+' [_] schnelltester integrieren
+' [_] 
+' [_] neues Fenster sideBarPlus
+' [_] 
+' [_] 
+
+
+
+'-->codeLink-Format
+
+' [_] History umstellen
+' [x] - relCodeLinks
+' [_] - punktgenaue Navigation: column !
+' [_] 
+' [_] dualSave
+' [_] - insertAfter
+' [_] - insertBefore
+' [_] 
+' [_] ... bei deltaLines mitten in den Bildschirm hinein navigieren ???
+' [_] 
+' [_] und/oder topLine auswerten ???
+' [_] 
+' [_] bei temporaer aufklappen werden die farben unsichtbar: 
+' [_] - ... forColor aendern ???
+' [_] - und/titelbalkenFarbe aendern oder hohen strich einfuegen ???
+' [_] - gridHintergrund einstellen - alle offenen zeilen (fast)weiss, bzw. highlightColor einstellen
+' [_] 
+' [_] syncBookmarks ??? 
+' [_] 
+' [_] - dragDrop
+' [_] 
+' [_] 
+' [_] bookmarks an history anschliessen
+' [_] 
+' [_] Suche an die History anschliessen ???
+' [_] und/oder hotKey fuer addHistory
+' [_] 
+' [_] 
+' [_] selBalken: farbe aendern
+' [_] dragDrop fuer indexlist und history vorbereiten
+' [_] 
+' [_] history: doppelter shortCut = trennzeile ???
+' [_] 
+' [_] 
+' [_] ...suchStrategie ueberlegen, dokumentieren und dann ausprobieren (PERFORMANCE !!!)
+' [_] 
+' [_] ??? update codeLinkData ...wenn sich die Zeilennummer geaendert hat ???
+' [_] 
+' [_] fehlt noch: historyAddItem(codeLinkItem)
+' [_] 
+' [_] statusFarbSymbole: 
+' [_] - soll ausgemustert werden
+' [_] - N E U, noch unfertig
+' [_] - zentralRoutine
+' [_] 
+' [_] 
+' [_] 
+
+  '' dim max as integer = cCodeLinkName.length
+  '' dim OUT(max) as string
+  
+  '' OUT(ccReserve1)         = ""
+  '' OUT(ccVersion)          = ""
+  '' OUT(ccTimeStamp)        = ""
+  '' OUT(ccReserve2)         = ""
+  '' OUT(ccNicName)          = ""
+  '' OUT(ccType)             = ""
+  '' OUT(ccApp)              = ""
+  '' OUT(ccFileSpec)         = ""
+  '' OUT(ccReserve3)         = ""
+  '' OUT(ccTopic)            = ""
+  '' OUT(ccTopicListIndex)   = ""
+  '' OUT(ccTopicLineNr)      = ""
+  '' OUT(ccTopicSourceLine)  = ""
+  '' OUT(ccDeltaLine)        = ""
+  '' OUT(ccColPos)           = ""
+  '' OUT(ccTargetSourceLine) = ""
+  '' OUT(ccReserve4)         = ""
+
+'--> !!! topLine fehlt noch
+
+
+' [_] 
+' [_] reserve1
+' [_] version = "cLink"
+' [_] className
+' [_] fileName + "?" + lineNr
+' [_] funcName' [_] reserve1
+'_|°|_cLink2_|°|_
+' [_] timeStamp
+' [_] reserve2: (groupe)
+' [_] nicName
+' [_] Type
+' [_] App
+' [_] fileSpec
+' [_] topic
+' [_] topicSourceLine
+' [_] reserve3
+' [_] topicLineNr
+' [_] deltaLine
+' [_] colPos
+' [_] url         ...14(1)
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+
+
+
+ 
+ 
+'-->crossRef
+ 
+' [_] 
+' [_] interne suche clonen und integrieren
+' [_] 
+' [_] falls word unter cursor erkannt wird und fenster offen: 
+' [_] - fuellen
+' [_] - sortieren
+' [_] - farbhinterlegung + anzeige status (z.B: wird nirgens aufgerufen
+' [_] 
+' [_] kleinen zoombereich integrieren
+' [_] 
+' [_] onDblClick navigate + insertHistory
+' [_] 
+' [_] gleiches Fenster fuer crossRef - interne suche ???
+' [_] 
+' [_] 
+
+ 
+ 
+ 
+'-->Bookmarks
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] FehlerPopUp fuer veraltete Bookmark --> veralgemeinern ???
+' [_] 
+' [_] 
+' [_] 
+' [_] ??? update: wenn oldItem = newItem then replace ???
+' [_] 
+' [_] dragDrop: innerhalb bookmarks
+' [_] dragDrop: ...in den codeEditor: insert defLine
+' [_] 
+' [_] 
+' [_] 
+' [x] insertCodeLink(beforeSelected)
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] codeLinkFormat definieren
+' [_] codeLinkFormat verwenden
+' [_] 
+' [_] getCodeLink2 --> auf codeLinkFormat umbauen
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] add: umstellen auf relative Links
+' [_] navigate: umstellen auf relative Links
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] read/save: web / dual ???
+' [_] 
+' [_] curFileSpec: indexList: global ???
+' [_] curFileSpec: History: field(item)
+' [_] 
+' [_] add: fileSpec/color
+' [_] navigate: switchTab, refreshIndexList, navigate
+' [_] 
+' [_] bgColor: colorArray, dict(colorIndex/fileSpec)
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] indexListe splitten in DATEN - Anzeige ???
+' [_] 
+' [_] 
+' [_] 
+' [x] grid3 initialisieren
+' [x] read
+' [x] save
+' [x] rClick = setCodeLink
+' [x] getCodeLink1 ... provisorisch
+' [x] neue Form(3)
+' [x] formRoutine ueberarbeiten
+' [x] fileSpec provisorisch anschliessen: ...tut gerade nicht
+
+
+
+
+'-->History 
+
+' [_] 
+' [_] History umstellen auf relCodeLinks
+' [_] 
+' [_] dualSave....
+' [_] 
+' [_] 
+' [_] 
+' [_] tabWechsel: ... auch in die history eintragen
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] autoColor: eine FarbSpalte zur Kennzeichnung verschiedener Tabs
+' [_] 
+' [_] toolbar/header: legende ???
+' [_] 
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] dragDrop in der historyList ???
+' [_] 
+' [_] 
+' [_] Shift rot/gruen = show History
+' [_] nur shift=hide ??? --> async keyState
+' [_] 
+' [_] rot/Gruen auf asyncKeyState umstellen
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] timeOut ... autoHide als textBox ??? (optionen)
+' [_] 
+' [_] design: angleichen
+' [_] 
+' [_] IDEE: globTemp ... als datenSpeicher
+' [_] 
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] dualInsert: curPos, newPos
+' [_] refresh curPos(...wenn Topic = Topic)
+' [_] 
+' [_] gewoehnliche doubletten verhindern
+' [_] dualItem: curPos, newPos
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] relativeLinks: Anzeige: deltaLines + topicItem
+' [_] rotGruen: punktgenaue Navigation
+' [_] contr.Click: testen
+' [_] 
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] ...Links
+' [_] ___ historyNavigateDeltaIndex
+' [_] ___ historyNavigate
+' [_] ___ switchToCurrentEditor()
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [_] ... Daten
+' [_] ... Anzeige
+' [_] ... Logik / dynamisches verhalten
+' [_] ... navigateManagement
+' [_] 
+' [_] jump ueber alle offenen Tabs
+' [_] virtuelle Scope-Definition ???
+' [_] 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] - - - - - - - - - - - - - - - - - - - - - - - - 
+' [_] 
+' [x] indexListe automatisch aufklappen ???
+' [x] keine Navigation bei caption
+' [x] fileSpec provisorisch integrieren
+' [x] indexListe automatisch aufklappen ???
+' [x] invalidate: checkCurLine (...refresh)
+' [x] click(topic): kein navigate ???
+' [x] invalidate: checkCurLine (...refresh)
+' [x] feld fileSpec ergaenzen 
+' [x] save/reload lastHistory ??? (debugMode? ???
+' [x] knopf: clear
+' [x] knopf: save
+' [x] knopf: remove
+' [x] knopf: add
+' [x] onLoad: autoRead
+
+
+
+
+
+
+
+'-->internSucher
+' [_] contr.Q --> start
+' [_] aktuelle markierung uebernehmen
+' [_] go / suche Starten Knopf ?
+' [_] dropDown: lastSearch oder vor/zurueck
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+
+'-->codeNav
+' [_] 
+' [_] SYNC: schnellTester in den sync packen 
+' [_] 
+' [_] indexListe integrieren
+' [_] 
+' [_] icon und label aktualisieren
+' [_] 
+' [_] revision: vorbereiten auf multiWindow
+' [_] 
+' [_] history als eigenes Fenster
+' [_] 2. Form: history
+' [_] - vorwaerts / rueckwaerts-Icon
+' [_] - deltaTime
+' [_] 
+' [_] 
+' [_] bookmarks neu ... mit igrid collaps/expand
+' [_] Bookmarks auch als klapp Auf/zu ???
+' [_] 
+' [_] open Tabs als popup und farbhinterlegung ?
+' [_] tabwechsel in history integrieren
+' [_] 
+' [_] 
+
+
+
+'--> ugb: massenEmailer: liste auswerten = dbUpdate
+' [_] 
+' [_] email: versenden aus Liste
+' [_] email: anlagen per dragDrop einfuegen
+' [_] email: anlagen mit versenden
+' [_] 
+' [_] bfBaustein: auswaehlen
+' [_] bfBaustein: mischen
+' [_] 
+' [_] fortschrittsKontrolle: logFile aus alten scripten holen ???
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+' [_] 
+
+
+
+' ... OLD: lesen byCode und/oder copyPaste
+   '' DUMP und ausblenden
+  
+   ' ... DesignParameter: eigene Seite ???
+
+   ' OK: dumpModus vorbereiten
+   ' OK: dialogDefinition in DATA-BLOCK speichern
+   ' ... lesen byCode und/oder copyPaste
+
+
+  'OK: autoscroll
+  'OK: grid: no soart
+  'OK: trenn(provisorisch)
+  'OK: bgColor(iGrid)
+
+  'OK: index umstellen
+  'OK: !!! SYNC dialog --> grid
+  'OK: !!! SYNC grid --> dialog  ... fast fertig
+  'OK: createGridHaederText herausziehen
+  
+  
+  
+  
+'--> schreiben
+
+  '' + toggle sidebar
+  '' statt xxx-3: update
+  '' NEU: OK / uebernehmen
+  '' splitterbar oben auf fix
+  
+  
+  
+  ' OK: Form leer rauemen
+  ' ... OK-Knopf, gruen
+  ' ... Abbrechen, rot
+  ' ... toolBar fuer seitenTitel verwenden
+  ' ... beim speichern vorschau aktualisieren (outomatisch)
+  ' ... DesignParameter: ...auswerten
+  ' - icon
+  ' - bgColor
+  ' - Hauptueberschrift - FensterTitel
+  
+'______ BETA-TEST: welche Anwendung: ____________ 
+'  - eMail   ???
+'  - iconBar ??? 
+
+'______ ...VORGEMERKT: _______________________
+  ' onEnter: next field
+  ' gridDesign speichern in Para
+  
+  'jumboLabel
+  '
+  ' ???  gridColNr <-> dialogPosition
+  ' ???  defaultWerte ueberspringen ??? checkbox 
+  
+' ugb_emailMischer.vb
+
+'biegelmaier 06441 747 84
+
+
+'#KOM: hier ist Platz fuer Kommentar
+'#KOM: oder ein eigenes Feld dafuer vorsehen ???
+'#KOM: 
+'#KOM: 
+'#KOM: 
+
+
+
+                    

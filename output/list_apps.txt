@@ -1,0 +1,58 @@
+MWUPD TeamWiki Software Update Service Version 3.0
+
+
+1	twbuschtrommel	TwBuschtrommel	Neuauflage der Buschtrommel, diesmal im Teamwiki.net ...		http://mw.teamwiki.net/docs/img/win-icons/Drum-48.png	http://mw.teamwiki.net/docs/img/win-icons/Drum-16.png	2009-12-23 14:34:15	mw	2010-06-08 14:56:01	mw		12			
+2	twajaxdebug	TwAjaxDebug	TwAjax - FileViewer		http://mw.teamwiki.net/docs/img/win-icons/SHELL32_274-48.png	http://mw.teamwiki.net/docs/img/win-icons/WinHex_4-16.png	2009-12-24 14:19:36	mw	2010-06-08 14:56:12	mw		12			
+3	scriptide	ScriptIDE	(veraltet)		http://mw.teamwiki.net/docs/img/win-icons/misc_911-48.png	http://mw.teamwiki.net/docs/img/win-icons/misc_911-16.png	2009-12-26 13:09:11	mw	2010-03-28 13:40:12	mw		11			
+38	idehelper	IDE Helper	benÃ¶tigt fÃ¼r: ScriptIDE4 und mwVSAddin		http://mw.teamwiki.net/docs/img/win-icons/devenv_6826-48.png	http://mw.teamwiki.net/docs/img/win-icons/devenv_6826-16.png	2010-04-02 19:21:50	mw	2010-04-02 19:22:45	mw		11			
+4	mwupd3_upload	MWupd3 uploader			http://mw.teamwiki.net/docs/img/win-icons/migload_2000-48.png	http://mw.teamwiki.net/docs/img/win-icons/migload_2000-16.png	2009-12-26 13:15:52	mw	2010-05-07 16:05:05	mw		2		http://mwupd3.teamwiki.net/request.php?c=get_version_info&appid=4	
+5	vbexplorer	vbExplorer			http://mw.teamwiki.net/docs/img/win-icons/ieframe_112-48.png	http://mw.teamwiki.net/docs/img/win-icons/ieframe_112-16.png	2009-12-28 16:14:51	mw	2010-06-08 14:56:24	mw		2			
+6	twdebugmon	twDebugMon			http://mw.teamwiki.net/docs/img/win-icons/agentsvr_113-48.png	http://mw.teamwiki.net/docs/img/win-icons/agentsvr_113-16.png	2009-12-28 16:58:23	mw	2010-06-08 14:56:46	mw		12			
+7	tracemonitor	TraceMonitor			http://mw.teamwiki.net/docs/img/win-icons/agentsvr_113-48.png	http://mw.teamwiki.net/docs/img/win-icons/agentsvr_113-16.png	2009-12-28 16:59:00	mw	2009-12-30 11:10:58	mw		2			
+0	_default	_default		hidden sys_default			2009-12-29 22:27:11	mw	2010-06-07 20:59:58	mw		7			
+49	para-editor	paraEditor	Editor fÃ¼r Parameterdateien im Format der "cls_globPara.vb"		http://mw.teamwiki.net/docs/img/win-icons/VB6_1251-32.png	http://mw.teamwiki.net/docs/img/win-icons/VB6_1251-16.png	2010-06-30 20:31:24	mw	2010-06-30 20:33:09	mw		2			
+9	mwupd3	MWUPD TeamWiki Software Update Utility Version 3		hidden			2009-12-29 23:13:56	mw	2010-06-07 21:00:05	mw		7			
+10	schulsaniedv	SchulsaniEDV			http://mk2.teamwiki.net/docs/images/win-icons/frm_main-Pflaster-16.png	http://mk2.teamwiki.net/docs/images/win-icons/frm_main-Pflaster-16.png	2009-12-30 17:32:10	mk2	2009-12-30 18:10:08	mk2		3			
+11	png-to-ico	ICO to PNG	PNGs in verschiedener GrÃ¶ÃŸe und Farbtiefe aus ICO-Dateien extrahieren.		http://mw.teamwiki.net/docs/img/win-icons/iexplore_32554-32.png	http://mw.teamwiki.net/docs/img/win-icons/iexplore_32554-16.png	2009-12-30 17:41:01	mw	2010-06-08 14:57:33	mw		14			
+12	appbar	AppBar			http://mw.teamwiki.net/docs/img/win-icons/WININET_138-16.png	http://mw.teamwiki.net/docs/img/win-icons/WININET_138-16.png	2009-12-30 18:57:34	mw	2010-06-08 14:58:22	mw		13			
+13	colorpicker	ColorPickR	Farbe unter dem Mauszeiger ermitteln oder per Slider auswÃ¤hlen - Ausgabe ins Clipboard ...		http://mw.teamwiki.net/docs/img/win-icons/color_swatch32.png	http://mw.teamwiki.net/docs/img/win-icons/color_swatch16.png	2010-01-02 13:35:56	mw	2010-06-08 16:04:19	mw		14	http://colorpickr.teamwiki.net/		
+14	chm_conv	CHM Converter	Beta ---  ohne Hilfe nicht verstÃ¤ndlich, hoffe ich ...		http://mw.teamwiki.net/docs/img/win-icons/hhctrl_ICON!HTMLHELP-48.png	http://mw.teamwiki.net/docs/img/win-icons/hhctrl_ICON!HTMLHELP-16.png	2010-01-02 15:39:32	mw	2010-06-08 14:57:46	mw		2			
+15	diashow	DiaShow			http://mw.teamwiki.net/docs/img/win-icons/FreeStudioManager_MAINICON-48.png	http://mw.teamwiki.net/docs/img/win-icons/FreeStudioManager_MAINICON-16.png	2010-01-02 17:36:03	lx	2010-06-08 14:58:06	lx		14			
+16	diashow_alpha	MW Diashow AlphaBlend			http://mw.teamwiki.net/docs/img/win-icons/imageres_65-48.png	http://mw.teamwiki.net/docs/img/win-icons/imageres_65-16.png	2010-01-02 18:20:33	mw	2010-06-08 14:58:14	mw		14			
+17	crh_demo	crh_demo			http://mw.teamwiki.net/docs/img/win-icons/imageres_158-48.png	http://mw.teamwiki.net/docs/img/win-icons/imageres_158-16.png	2010-01-04 14:30:04	mw	2010-06-08 15:57:39	mw		15			
+18	screengrab5	ScreenGrab 5	Bildschirm-Fotografierer		http://mw.teamwiki.net/docs/img/win-icons/grab-32.png	http://mw.teamwiki.net/docs/img/win-icons/AcroRd32_18434-16.png	2010-01-07 17:56:23	mw	2010-06-08 14:59:22	mw		14			
+19	foldersync	FolderSync			http://mw.teamwiki.net/docs/img/win-icons/shell32_244-48.png	http://mw.teamwiki.net/docs/img/win-icons/shell32_244-16.png	2010-01-08 17:44:00	mw	2010-06-08 14:58:30	mw		12			
+20	winspy	WinSpy			http://mw.teamwiki.net/docs/img/win-icons/WinSpy_1-48.png	http://mw.teamwiki.net/docs/img/win-icons/WinSpy_1-16.png	2010-01-11 21:24:46	mw	2010-01-11 21:29:44	mw		2			
+22	sh06	ScriptIDE2	(veraltet)		http://mw.teamwiki.net/docs/img/win-icons/misc_911-48.png	http://mw.teamwiki.net/docs/img/win-icons/misc_911-16.png	2010-01-25 19:56:53	mw	2010-03-28 13:40:21	mw		11			
+28	mw-privat	mw		hidden			2010-02-07 10:31:10	mw	2010-06-07 21:00:13	mw		10			
+23	sia2	ScriptIDE2 Addins	(veraltet)		http://mw.teamwiki.net/docs/img/win-icons/misc_911-48.png	http://mw.teamwiki.net/docs/img/win-icons/misc_911-16.png	2010-01-25 20:06:37	mw	2010-03-28 13:40:58	mw		11			
+24	kvs	PartnerMaske			http://mw.teamwiki.net/docs/img/win-icons/chat_144-16.png	http://mw.teamwiki.net/docs/img/win-icons/chat_144-16.png	2010-01-27 14:11:37	es	2010-01-27 17:36:47	es		9			
+25	kundenkonto	Kunden-Konto	Nur zum internen Gebrauch		http://mw.teamwiki.net/docs/img/win-icons/pifmgr_8-32.png	http://mw.teamwiki.net/docs/img/win-icons/pifmgr_8-16.png	2010-01-27 17:28:08	es	2010-01-27 17:35:28	es		9			
+26	mp3_player	MP3 Player			http://mw.teamwiki.net/docs/img/win-icons/wmploc_612-32.png	http://mw.teamwiki.net/docs/img/win-icons/wmploc_612-16.png	2010-01-28 21:52:19	mw	2010-06-08 14:58:44	mw		14			
+27	scriptsyncfiles	skripte		hidden			2010-01-30 22:16:40	mw	2010-06-07 21:00:21	mw		10			
+29	idefiles	ideFiles		hidden			2010-02-07 10:34:31	mw	2010-06-07 21:00:52	mw		10			
+48	dataobjectviewer	DataObject - Viewer	[Clipboard, DragDrop]		http://mw.teamwiki.net/docs/img/win-icons/clipbrd_2-32.png	http://mw.teamwiki.net/docs/img/win-icons/CDGrab_133-16.png	2010-06-22 14:26:00	mw	2010-06-22 14:27:29	mw		13			
+30	es	es		hidden			2010-02-10 15:46:03	mw	2010-06-07 21:01:02	mw		10			
+31	online-fragebogen	online-fragebogen	Auswertung des Online-Fragebogen				2010-02-14 16:35:26	es	2010-06-07 21:01:09	es		9			
+32	side3	ScriptIDE3	(veraltet)		http://mw.teamwiki.net/docs/img/win-icons/dfrgres_106-48.png	http://mw.teamwiki.net/docs/img/win-icons/dfrgres_106-16.png	2010-02-21 20:00:38	mw	2010-03-28 13:40:40	mw	C:\yEXE\ide3\	11			
+33	desktop-stundenplan	desktop-stundenplan					2010-02-24 22:13:06	lx	2010-06-07 21:01:18	lx		5			
+34	iprocviewer	Interproc-Viewer	Interproc-Schnittstelle von Anwendungen auslesen		http://mw.teamwiki.net/docs/img/win-icons/FindHS.png	http://mw.teamwiki.net/docs/img/win-icons/FindHS.png	2010-02-28 13:14:23	mw	2010-03-01 21:07:09	mw		2			
+35	mw-eed	EED	EinzelEtikettenDrucker		http://mw.teamwiki.net/docs/img/win-icons/comdlg32_540-48.png	http://mw.teamwiki.net/docs/img/win-icons/comdlg32_540-16.png	2010-03-17 16:38:56	es	2010-03-17 16:41:50	es		9			
+36	clipboard-enhancer	Clipboard-Enhancer	File Clipboard Enhancer is a simple utility which integrates with Explorer to allow you to paste the filenames of any file you copy from Explorer as text.		http://mw.teamwiki.net/docs/img/win-icons/FileClipboardEnhancer6_1-32.png	http://mw.teamwiki.net/docs/img/win-icons/FileClipboardEnhancer6_1-16.png	2010-03-24 16:28:03	es	2010-06-08 16:05:23	es		13	http://www.vbaccelerator.com/home/vb/code/libraries/clipboard/File_Clipboard_Enhancer/article.asp		
+37	side4	ScriptIDE 4	Integrierte Entwicklungsumgebung fÃ¼r Internetanwendungen (PHP ...) sowie lokale Skripte (VBnet-Skript)		http://mw.teamwiki.net/docs/img/win-icons/MSACCESS_265-48.png	http://mw.teamwiki.net/docs/img/win-icons/MSACCESS_265-16.png	2010-03-28 12:12:28	mw	2010-11-24 18:34:54	mw	C:\yEXE\sIDE4\	11			
+39	mwvsaddin	mw Visual Studio Addin	Muss in den vorgegebenen Ordner installiert werden!		http://mw.teamwiki.net/docs/img/win-icons/VB6_1204-32.png	http://mw.teamwiki.net/docs/img/win-icons/VB6_1204-16.png	2010-04-02 19:25:42	mw	2010-04-02 19:35:34	mw	%ALLUSERSPROFILE%\Application Data\Microsoft\MSEnvShared\Addins	2			
+40	fuss_pedal	Fuss Pedal Parallelport	Fuss Pedal Programm fÃ¼r Parallelport zum Tasten senden				2010-04-23 18:27:18	lx	2010-06-07 21:01:36	lx	C:\yEXE\	5			
+41	syncv	FolderSync v2.0	Ordnersynchronisierung mit Versionsverwaltung		http://mw.teamwiki.net/docs/img/win-icons/102_147-48.png	http://mw.teamwiki.net/docs/img/win-icons/102_147-16.png	2010-04-25 14:39:02	mw	2010-06-08 14:59:49	mw		12			
+42	mw-batch	MW Batch Processor					2010-05-13 21:59:21	mw	2010-06-08 15:00:25	mw		15			
+43	tw_pic_up	TeamWiki Bilder Uploader					2010-05-16 14:18:33	lx	2010-06-07 21:01:43	lx		5			
+47	cron-runner	Cron Runner	Cron fÃ¼r Windows		http://mw.teamwiki.net/docs/img/win-icons/AuxiliaryDisplayCpl_12-48.png	http://mw.teamwiki.net/docs/img/win-icons/AuxiliaryDisplayCpl_12-16.png	2010-06-10 15:44:22	mw	2010-06-10 15:46:01	mw		13			
+44	cpumonitor2	CPU-Monitor2	CPU-Monitor und MiniSpy				2010-05-30 13:03:17	mw	2010-06-08 15:00:18	mw		13			
+45	appbar4	AppBar 4			http://mw.teamwiki.net/docs/img/win-icons/MSACCESS_324-32.png	http://mw.teamwiki.net/docs/img/win-icons/MSACCESS_324-16.png	2010-05-30 17:24:00	mw	2010-06-08 14:57:27	mw		13			
+46	qsearch3	qSearch	Schnellsuche - nicht Vista/Win7-geprÃ¼ft		http://mw.teamwiki.net/docs/img/win-icons/srchui_23-48.png	http://mw.teamwiki.net/docs/img/win-icons/srchui_23-16.png	2010-06-07 18:01:15	mw	2010-06-08 14:55:55	mw		13			
+50	icon-sidebar	IconSidebar					2010-07-02 11:18:28	mw	2010-07-02 11:18:57	mw		14			
+51	ugb-nodehelper	UGB NodeHelper			http://ugb.de/favicon.ico	http://ugb.de/favicon.ico	2010-07-07 13:35:23	es	2010-07-07 13:35:43	es		0			
+52	p2p-chat	P2P Chat					2010-08-11 13:37:33	es	2010-08-11 13:37:44	es		0			
+53	net-file-converter	.NET File Converter	Einzelne Codeschnipsel oder mehrere Dateien auf einmal zw. C# und VB.Net konvertieren		http://mw.teamwiki.net/docs/img/win-icons/SHELL32_243-16.png	http://mw.teamwiki.net/docs/img/win-icons/SHELL32_243-16.png	2010-09-12 19:08:43	mw	2010-09-12 19:13:37	mw		2	http://codeconverter.sharpdevelop.net/Default.aspx		
+54	multi-mon-wallpaper	MultiMonWallpaper	Verschiedene Desktophintergründe bei Multi-Monitor-Systemen				2010-12-05 13:20:42	mw	2010-12-05 13:24:35	mw		13	http://max-weller.de/multimonwallpaper	http://mwupd3.teamwiki.net/request.php?c=get_version_info&appid=54	
+55	marquee	marquee Screen Saver	Unter Windows 7 gibts meinen Lieblings-Screensaver nicht mehr. Hier ein Nachbau mit kleinen Extras.		http://mw.teamwiki.net/docs/img/win-icons/screensaver-32.png	http://mw.teamwiki.net/docs/img/win-icons/screensaver-32.png	2010-12-14 10:48:25	mw	2010-12-14 11:16:54	mw		13	http://max-weller.de/marquee-screensaver/		
+56	lua	lua		hidden			0000-00-00 00:00:00		2012-02-18 14:52:37			10			

@@ -1,0 +1,15 @@
+Window.OpenedFiles	ScriptIDE.Main	Geöffnete Dateien	2	Button	http://mw.teamwiki.net/docs/img/win-icons/WindowsHS.png
+Window.IndexList	ScriptIDE.Main	Indexliste	2	Button	http://mw.teamwiki.net/docs/img/win-icons/ShowRulelinesHS.png
+Window.GlobSearch	ScriptIDE.Main	Suche	2	Button	http://mw.teamwiki.net/docs/img/win-icons/FindHS.png
+Window.Console	ScriptIDE.Main	Konsole	2	Button	http://mw.teamwiki.net/docs/img/win-icons/VB6_1254-16.png
+				Separator	
+				Separator	
+Window.ShowLocalBrowser	siaCommonProtocols	Local	2	Button	http://mw.teamwiki.net/docs/img/win-icons/shell32_235-16.png
+Window.ShowFTPBrowser	siaCommonProtocols	FTP	2	Button	http://mw.teamwiki.net/docs/img/win-icons/iexplore_32542-16.png
+Window.SolutionExplorer	siaSolution	Solution Explorer	2	Button	http://mw.teamwiki.net/docs/img/win-icons/VCProject_7-16.png
+Window.ScriptSync	siaScriptSyncMini	Sync	2	Button	http://mw.teamwiki.net/docs/img/win-icons/CSCDLL_143-16.png
+Window.Reflection	siaCodeCompiler	Reflection	2	Button	http://mw.teamwiki.net/docs/img/win-icons/VB6_1210-16.png
+				Separator	
+				Separator	
+Window.SkinOptions	siaSkinnable	Skins	2	Button	http://mw.teamwiki.net/docs/img/win-icons/wscript_1-16.png
+Window.Designer	siaFormDesigner	Design	2	Button	http://mw.teamwiki.net/docs/img/win-icons/HTMLSubmitHS.png

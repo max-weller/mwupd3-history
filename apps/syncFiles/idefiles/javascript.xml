@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.js">
+
+  <Language>js</Language>
+
+  <SCStyle id="6" fgcolor="#790000" bgcolor="#FFFFFF" style="italic" />  <!-- double quot str -->
+  <SCStyle id="7" fgcolor="#790000" bgcolor="#FFFFFF" />  <!-- single quot str -->
+  
+  <SCStyle id="1" fgcolor="#666666" bgcolor="#EFEFEF" />  <!-- comment -->
+  <SCStyle id="2" fgcolor="#666666" bgcolor="#EFEFEF" style="bold" />  <!-- comment -->
+  <SCStyle id="3" fgcolor="#666666" bgcolor="#EFEFEF" />  <!-- comment -->
+
+  <SCStyle id="14" fgcolor="#000000" bgcolor="#FFBBB0" />  <!-- Regex -->
+  <SCStyle id="10" fgcolor="#007F7F" bgcolor="#FFFFFF" />  <!-- symbole -->
+
+</ScintillaLanguageConfig>

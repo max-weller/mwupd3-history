@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Windows-1251" standalone="no"?>
+<Extensibility xmlns="http://schemas.microsoft.com/AutomationExtensibility">
+	<HostApplication>
+		<Name>Microsoft Visual Studio Macros</Name>
+		<Version>9.0</Version>
+	</HostApplication>
+	<HostApplication>
+		<Name>Microsoft Visual Studio</Name>
+		<Version>9.0</Version>
+	</HostApplication>
+	<Addin>
+		<FriendlyName>mwVSAddin</FriendlyName>
+		<Description>Max Weller's Visual Studio Addin</Description>
+		<Assembly>mwVSAddin.dll</Assembly>
+		<FullClassName>mwVSAddin.Connect</FullClassName>
+		<LoadBehavior>1</LoadBehavior>
+		<CommandPreload>0</CommandPreload>
+		<CommandLineSafe>0</CommandLineSafe>
+	</Addin>
+</Extensibility>

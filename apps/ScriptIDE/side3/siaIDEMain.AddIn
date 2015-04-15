@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AddIn name        = "ScriptIDE.Main"
+       displayname = "ScriptIDE main module"
+       author      = "Max Weller"
+       url         = "http://www.codeproject.com/TBD"
+       description = ""
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <!-- unique name of the AddIn, used when others AddIns want to reference this AddIn -->
+    <Identity name="ScriptIDE.Main" version = "@EntryAssemblyVersion"/>
+    <!--
+		others AddIns can specify dependencies like this:
+		<Dependency addin="ICSharpCode.Core.Demo" version="1.0.0.x-1.0.0.y"/>
+		-->
+  </Manifest>
+
+  <Runtime>
+    <Import assembly=":siaIDEMain"/>
+  </Runtime>
+
+  <Path name="/Workspace/ContentViewers">
+    <Class id="Default" mode="dockcontent" filefilter="*.*" class="ScriptIDE.Main.frmDC_scintilla" />
+
+  </Path>
+
+  <Path name="/Workspace/IndexList">
+    <Class id="Default" filefilter="*.*" class="ScriptIDE.Main.idx_default" />
+
+  </Path>
+
+  <Path name="/Workspace/Toolbars">
+    <DefaultView id="FileToolbar">File.New File.Open File.Save File.SaveAs File.SaveAll</DefaultView>
+    <DefaultView id="WindowToolbar">Window.OpenedFiles Window.Console Window.GlobSearch</DefaultView>
+  </Path>
+  
+  <Path name="/Workspace/ToolbarCommands">
+    <Toolbaritem id="File.New" text="Neue Datei" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/NewDocumentHS.png" />
+    <Toolbaritem id="File.Open" text="Datei &#246;ffnen ..." defkey="CTRL-O" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/openHS.png" />
+    <Toolbaritem id="File.Save" text="Speichern" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/saveHS.png" />
+    <Toolbaritem id="File.SaveAs" text="Speichern unter ..." kind="Button" icon="" />
+    <Toolbaritem id="File.SaveAll" text="Alle Dateien speichern" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/SaveAllHS.png" />
+
+    <Toolbaritem id="Window.OpenedFiles" text="Ge&#246;ffnete Dateien" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/WindowsHS.png" />
+    <Toolbaritem id="Window.Console" text="Konsole" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/VB6_1254-16.png" />
+    <Toolbaritem id="Window.GlobSearch" text="Suche" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FindHS.png" />
+    <Toolbaritem id="Window.IndexList" text="Suche" kind="Button" icon="http://mw.teamwiki.net/docs/img/win-icons/FindHS.png" />
+
+  </Path>
+
+  <Path name="/Workspace/ProtocolHandlers">
+  </Path>
+
+  <Path name="/Workspace/ToolWindows">
+    <ToolWindow id="Console" />
+    <ToolWindow id="GlobSearch" />
+    <ToolWindow id="OpenedFiles" />
+    <ToolWindow id="IndexList" />
+  </Path>
+
+
+  <Path name="/OptionsDialog/Pages">
+    <Class id="ToolbarCustomize" class="ScriptIDE.Main.prop_Toolbars"
+           path="Allgemein/Toolbars"
+           name="Toolbars anpassen" icon="http://mw.teamwiki.net/docs/img/win-icons/configure-toolbars.png" />
+    <!--
+    <Class id="UserScripts" class="ScriptIDE.Main.prop_UserScripts"
+               path="Erweiterungen/Userskripte"
+               name="Userskripte bearbeiten" icon="http://mw.teamwiki.net/docs/img/win-icons/configure-toolbars.png" />
+    -->
+    <Class id="Hotkeys" class="ScriptIDE.Main.prop_Hotkeys"
+               path="Allgemein/Tastatur"
+               name="Tastaturk&#252;rzel" icon="http://mw.teamwiki.net/docs/img/win-icons/charmap_111-32.png" />
+
+  </Path>
+
+
+  <Path name="/Core/Interproc/Commands">
+    <QUERY id="GetActiveURL" parameters="-" help="gibt die URL des akt. Tab zur&#252;ck"/>
+    <QUERY id="GetActiveFileSpec" parameters="-" help="gibt den Dateipfad des akt. Tab zur&#252;ck"/>
+
+    <CMD id="Navigate" parameters="FileSpec[?lineNr]" help="FileSpec=Lokaler Dateiname oder URI, lineNr(optional)=zeilennummer"/>
+    
+  </Path>
+  
+</AddIn>

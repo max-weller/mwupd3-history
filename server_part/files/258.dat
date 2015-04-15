@@ -1,0 +1,10 @@
+Debug.Compile	siaCodeCompiler	Kompilieren	2	Button	http://mw.teamwiki.net/docs/img/icons/build.png
+Debug.Run	siaCodeCompiler	Debuggen	2	Button	http://mw.teamwiki.net/docs/img/win-icons/debug-run.png
+Debug.Stop	siaCodeCompiler	Stop	2	Button	http://mw.teamwiki.net/docs/img/win-icons/debug-stop.png
+Debug.Info	siaCodeCompiler	Debug-Informationen	2	Button	http://mw.teamwiki.net/docs/img/win-icons/msinfo32_128-16.png
+Debug.ModeLbl	siaCodeCompiler	Ready	1	Label	
+Debug.OpenExplorer	siaCodeCompiler	Explorer öffnen	2	Button	http://mw.teamwiki.net/docs/img/win-icons/explorer_101-16.png
+				Separator	
+					
+Window.Console	ScriptIDE.Main	Konsole	2	Button	http://mw.teamwiki.net/docs/img/win-icons/VB6_1254-16.png
+Reflection.Lookup	siaCodeCompiler	Wort unter Cursor suchen	2	Button	http://mw.teamwiki.net/docs/img/win-icons/ObjectSearch.png

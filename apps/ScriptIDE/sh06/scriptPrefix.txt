@@ -1,0 +1,51 @@
+Option Explicit
+
+Dim zLN       'Zeilennummer
+Dim zC, zC2   'Ausführungscounter
+Dim ziI       'Interrupt Schleifenzähler
+Dim ziE       'Interrupt Execute
+Dim ziQ       'Interrupt Quit
+Dim zNN       'Funktionsname
+Dim zBB()     'Breakpoints
+
+
+Class zz_scriptClass
+
+Public NicName
+
+Property Get Name
+  Name = "{ScriptClass}"
+End Property
+
+Sub zz_BBreset(lineCount)
+  Redim zBB(lineCount)
+End Sub
+
+Sub zz_BBsetLine(lineIdx, stat)
+  zBB(lineIdx) = stat
+End Sub
+
+Sub zz_BBtrace
+dim i
+For i=0 to ubound(zBB)
+if ZBB(i) Then zz.trace i,"","Break set in {ScriptClass} line",i
+next
+End Sub
+
+Sub Class_Initialize()
+  On Error Resume Next
+  NicName = Name
+  Call onInitialize()
+  ZZ.trace 0,"Class_Initialize","onIniDone {ScriptClass}", NicName
+End Sub
+
+Sub Class_Terminate()
+  On Error Resume Next
+  ZZ.trace 0,"Class_Terminate","Class_Terminate {ScriptClass}", NicName
+  Call onTerminate()
+End Sub
+
+Sub Dispose
+  ZZ.releaseMyRef
+End Sub
+

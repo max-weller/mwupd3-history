@@ -1,0 +1,18 @@
+#Reference System.dll
+#Reference mscorlib.dll
+#Reference System.Windows.Forms.dll
+#Reference System.Data.dll
+#Reference System.Drawing.dll
+#Reference scriptHostLib.dll
+#Reference WeifenLuo.WinFormsUI.Docking.dll
+#Reference TenTec.Windows.iGridLib.iGrid.dll
+#Reference Microsoft.VisualBasic.dll
+
+#Imports System
+#Imports System.Windows.Forms
+#Imports System.Data
+#Imports System.Drawing
+#Imports scriptHostLib
+#Imports Tentec.Windows.iGridLib
+#Imports Microsoft.VisualBasic
+

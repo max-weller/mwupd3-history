@@ -1,0 +1,4 @@
+File.New	ScriptIDE.Main	Neue Datei	2	Button	http://mw.teamwiki.net/docs/img/win-icons/NewDocumentHS.png
+File.Open	ScriptIDE.Main	Datei öffnen ...	2	Button	http://mw.teamwiki.net/docs/img/win-icons/openHS.png
+File.Save	ScriptIDE.Main	Speichern	2	Button	http://mw.teamwiki.net/docs/img/win-icons/saveHS.png
+File.SaveAll	ScriptIDE.Main	Alle Dateien speichern	2	Button	http://mw.teamwiki.net/docs/img/win-icons/SaveAllHS.png

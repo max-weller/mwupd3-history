@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.pl">
+  
+  <Language>cs</Language>
+  <LexerName>perl</LexerName>
+
+</ScintillaLanguageConfig>

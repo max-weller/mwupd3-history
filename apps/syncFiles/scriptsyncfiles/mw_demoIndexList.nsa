@@ -1,0 +1,258 @@
+#Implements IAddinConnect
+#Para DebugMode Internal
+#Language vb
+
+<AddIn name        = "mw_demoIndexList"
+       displayname = "Indexlist_test"
+       author      = "Max Weller"
+       url         = "http://teamwiki.net/"
+       description = "Indexlist_test">
+
+  <Manifest>
+    <!-- unique name of the AddIn, used when others AddIns want to reference this AddIn -->
+    <Identity name="mw_demoIndexList" version = "@EntryAssemblyVersion"/>
+    <!--
+		others AddIns can specify dependencies like this:
+		<Dependency addin="ICSharpCode.Core.Demo" version="1.0.0.x-1.0.0.y"/>
+		-->
+  </Manifest>
+
+  <Path name="/Workspace/IndexList">
+    <Class id="DemoIdxLst" filefilter="*.vb;*.vbs;*.nsv;*.nsvb;*.nsa" class="q_scriptClass.mw_demoIndexList+idx_test02" insertbefore="Default" />
+
+  </Path>
+
+
+
+</AddIn>
+
+
+#Reference System.Windows.Forms.dll
+#Reference System.Data.dll
+#Reference System.Drawing.dll
+#Reference WeifenLuo.WinFormsUI.Docking.dll
+#Reference TenTec.Windows.iGridLib.iGrid.dll
+#Reference siaIDEMain.dll
+
+#Imports System.Windows.Forms
+#Imports System.Data
+#Imports System.Drawing
+#Imports ScriptIDE.Core
+#Imports ScriptIDE.ScriptHost
+#Imports ScriptIDE.ScriptWindowHelper
+#Imports Tentec.Windows.iGridLib
+
+Dim IDE As IIDEHelper
+
+
+  Public Sub Connect(ByVal application As Object, ByVal connectMode As Core.ConnectMode, ByVal addInInst As Core.AddinInstance, ByRef custom As Object) Implements Core.IAddinConnect.Connect
+    
+    IDE = Main.cls_IDEHelper.Instance
+    MsgBox("OnConnect",,"Test-Addin")
+  End Sub
+
+
+  Public Sub Disconnect(ByVal removeMode As Core.DisconnectMode, ByRef custom As Object) Implements Core.IAddinConnect.Disconnect
+    
+    
+  End Sub
+
+
+  Public Function GetAddinWindow(ByVal PersistString As String) As Form Implements IAddinConnect.GetAddinWindow
+    Return Nothing
+  End Function
+
+  Public Sub OnNavigate(ByVal kind As Core.NavigationKind, ByVal source As String, ByVal command As String, ByVal args As Object, ByRef returnValue As Object) Implements Core.IAddinConnect.OnNavigate
+    MsgBox(command,,"Test-Addin")
+  End Sub
+
+  Public Sub OnAddinUpdate(ByVal addinChanged As String, ByRef custom As Object) Implements Core.IAddinConnect.OnAddinUpdate
+
+  End Sub
+
+  Public Sub OnBeforeShutdown(ByRef cancel As Boolean, ByRef custom As Object) Implements Core.IAddinConnect.OnBeforeShutdown
+
+  End Sub
+
+  Public Sub OnStartupComplete(ByRef custom As Object) Implements Core.IAddinConnect.OnStartupComplete
+    
+  End Sub
+  
+Public Class idx_test02
+  Inherits System.Windows.Forms.UserControl
+  Implements IIndexList
+  Dim skipNavIndexList As Boolean
+
+  Public Event ItemClicked(ByVal lineNumber As Integer) Implements Core.IIndexList.ItemClicked
+
+
+  Private Sub ListView1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+    If skipNavIndexList Then Exit Sub
+    If ListView1.SelectedItems.Count <> 1 Then Exit Sub
+    RaiseEvent ItemClicked(ListView1.SelectedItems(0).Tag)
+  End Sub
+
+  :Function stripVBKeywords(ByVal sourceLineNetto As String) As String
+    sourceLineNetto = UCase(Trim(sourceLineNetto))
+    sourceLineNetto = sourceLineNetto.Replace("COMEXPORT", "")
+    sourceLineNetto = sourceLineNetto.Replace("PRIVATE", "")
+    sourceLineNetto = sourceLineNetto.Replace("PROTECTED", "")
+    sourceLineNetto = sourceLineNetto.Replace("FRIEND", "")
+    sourceLineNetto = sourceLineNetto.Replace("PUBLIC", "")
+    sourceLineNetto = sourceLineNetto.Replace("PARTIAL", "")
+    sourceLineNetto = sourceLineNetto.Replace("SHADOWS", "")
+    sourceLineNetto = sourceLineNetto.Replace("OVERLOADS", "")
+    sourceLineNetto = sourceLineNetto.Replace("OVERRIDABLE", "")
+    sourceLineNetto = sourceLineNetto.Replace("OVERRIDES", "")
+    sourceLineNetto = sourceLineNetto.Replace("MUSTOVERRIDE", "")
+    sourceLineNetto = sourceLineNetto.Replace("DEFAULT", "")
+    sourceLineNetto = sourceLineNetto.Replace("SHARED", "")
+    sourceLineNetto = sourceLineNetto.Replace("READONLY", "")
+    sourceLineNetto = sourceLineNetto.Replace("WRITEONLY", "")
+    Return Trim(sourceLineNetto)
+  End Function
+
+  :Public Sub buildList(ByVal Tab As Core.IDockContentForm) Implements Core.IIndexList.buildList
+    On Error Resume Next
+    Dim tab10 = vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab + vbTab
+    With ListView1
+      Dim lines() = Tab.getLines()
+
+      skipNavIndexList = True
+      Dim selIndex = Me.selectedIndex
+      .SuspendLayout()
+      .Items.Clear()
+
+      .Items.Add(Tab.getViewFilename, "title").Tag = 0
+      Dim tx, li, li2 As String, firstChar As Integer = 0
+      For i As Integer = 0 To lines.Length - 1
+        li = lines(i).Trim() + " "
+        li2 = stripVBKeywords(li)
+        If li2.StartsWith("FUNCTION ") Then
+          .Items.Add("#" & i, li, "func").Tag = i
+        ElseIf li2.StartsWith("SUB ") Then
+          .Items.Add("#" & i, li, "sub").Tag = i
+        ElseIf li2.StartsWith("PROPERTY ") Then
+          .Items.Add("#" & i, li, "prop").Tag = i
+        ElseIf li2.StartsWith("CLASS ") Then
+          .Items.Add("#" & i, li, "class").Tag = i
+        ElseIf li2.StartsWith("ENUM ") Then
+          .Items.Add("#" & i, li, "enum").Tag = i
+
+        ElseIf li2.StartsWith("//-->") Or li2.StartsWith("#-->") Or li2.StartsWith(";-->") Or li2.StartsWith("'-->") Then
+          tx = li.Substring(5).Trim
+          .Items.Add("#" & i, tx, "title").Tag = i
+
+        End If
+        firstChar += lines(i).Length + 1
+      Next
+
+      selectedIndex = selIndex
+
+      .ResumeLayout()
+      skipNavIndexList = False
+    End With
+  End Sub
+
+  :Property selectedIndex() As Integer
+    Get
+      If ListView1.SelectedIndices.Count = 0 Then Return 0
+      Return ListView1.SelectedIndices(0)
+    End Get
+    Set(ByVal value As Integer)
+      On Error Resume Next
+      ListView1.Items(value).Selected = True
+      ListView1.Items(value).EnsureVisible()
+    End Set
+  End Property
+
+  Public Sub onKeyHandler(ByVal key As System.Windows.Forms.KeyEventArgs) Implements Core.IIndexList.onKeyHandler
+    On Error Resume Next
+    If key.KeyCode = Keys.Up And key.Control Then
+      Me.selectedIndex -= 1
+    End If
+    If key.KeyCode = Keys.Down And key.Control Then
+      Me.selectedIndex += 1
+    End If
+  End Sub
+
+  Public Sub onPositionChanged(ByVal lineNumber As Integer) Implements Core.IIndexList.onPositionChanged
+    With ListView1
+      skipNavIndexList = True
+      For i As Integer = .Items.Count - 1 To 0 Step -1
+        If Val(.Items(i).Tag) < lineNumber Then .Items(i).Selected = True : Exit For
+      Next
+      skipNavIndexList = False
+    End With
+  End Sub
+
+  Private Sub idx_test01_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+  End Sub
+  
+  :Public Sub New()
+    InitializeComponent()
+  End Sub
+  
+  'UserControl overrides dispose to clean up the component list.
+  <System.Diagnostics.DebuggerNonUserCode()> _
+  :Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+    Try
+      If disposing AndAlso components IsNot Nothing Then
+        components.Dispose()
+      End If
+    Finally
+      MyBase.Dispose(disposing)
+    End Try
+  End Sub
+
+  'Required by the Windows Form Designer
+  Private components As System.ComponentModel.IContainer
+
+  'NOTE: The following procedure is required by the Windows Form Designer
+  'It can be modified using the Windows Form Designer.  
+  'Do not modify it using the code editor.
+  <System.Diagnostics.DebuggerStepThrough()> _
+  :Private Sub InitializeComponent()
+    Me.components = New System.ComponentModel.Container
+    'Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(idx_test02))
+    Me.ListView1 = New System.Windows.Forms.ListView
+    Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader
+    Me.SuspendLayout()
+    '
+    'ListView1
+    '
+    Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                Or System.Windows.Forms.AnchorStyles.Left) _
+                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1})
+    Me.ListView1.FullRowSelect = True
+    Me.ListView1.Location = New System.Drawing.Point(5, 64)
+    Me.ListView1.MultiSelect = False
+    Me.ListView1.Name = "ListView1"
+    Me.ListView1.Size = New System.Drawing.Size(204, 352)
+    Me.ListView1.TabIndex = 0
+    Me.ListView1.UseCompatibleStateImageBehavior = False
+    Me.ListView1.View = System.Windows.Forms.View.Details
+    '
+    'ColumnHeader1
+    '
+    Me.ColumnHeader1.Width = 179
+    '
+    'idx_test01
+    '
+    Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+    Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+    Me.Controls.Add(Me.ListView1)
+    Me.Name = "idx_test01"
+    Me.Size = New System.Drawing.Size(209, 417)
+    Me.ResumeLayout(False)
+
+  End Sub
+  Friend WithEvents ListView1 As System.Windows.Forms.ListView
+  Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+
+End Class
+
+
+

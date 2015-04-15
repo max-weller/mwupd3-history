@@ -1,0 +1,99 @@
+using Microsoft.VisualBasic.CompilerServices;
+
+namespace q_scriptClass
+{
+    [Microsoft.VisualBasic.ComClass()]
+    public class {ScriptClass}
+    {
+        
+        public static int zLN;
+        //Zeilennummer
+        public static int zC = 0;
+        public static int zC2 = 0;
+        //Ausfuehrungscounter
+        public static int ziI;
+        //Interrupt Schleifenzaehler
+        public static string ziE;
+        //Interrupt Execute
+        public static bool ziQ;
+        //Interrupt Quit
+        public static string zNN;
+        //Funktionsname
+        public static bool[] zBB;
+        //Breakpoints
+        public static string NicName;
+        public static IScriptHelper myZZ;
+        
+        public string Name {
+            get { return "{ScriptClass}"; }
+        }
+        
+        private static IScriptHelper zHlp;
+        public static IScriptHelper ZZ
+        {
+            get { return zHlp; }
+        }
+        
+        public void zz_setHlpObject(IScriptHelper obj)
+        {
+            zHlp = obj;
+            myZZ = obj;
+        }
+        
+        public void zz_BBreset(int lineCount)
+        {
+            zBB = new bool[lineCount];
+        }
+        
+        public void zz_BBsetLine(int lineIdx, bool stat)
+        {
+            zBB[lineIdx] = stat;
+        }
+        
+        public void zz_BBtrace()
+        {
+            int i = 0;
+            for (i = 0; i <= zBB.Length - 1; i++) {
+                if (zBB[i]) ZZ.trace(i, "", "Break set in {ScriptClass} line", i, "info"); 
+            }
+            ZZ.trace(0, "", "Line count", zBB.Length, "info");
+        }
+        
+        public {ScriptClass}()
+        {
+            //On Error Resume Next
+            NicName = Name;
+            try {
+                //Late Binding = bad practice
+                //http://swigartconsulting.blogs.com/tech_blender/2005/03/c_late_binding.html
+                LateBinding.LateCall(this, null, "onInitialize", new object[] {}, null, null);
+                // instead of: ((object)this).onInitialize();
+            }
+            catch {
+            }
+            //ZZ.trace(0, "Class_Initialize", "onIniDone {ScriptClass}", NicName, "info");
+        }
+        
+        ~{ScriptClass}()
+        {
+            //On Error Resume Next
+            ZZ.trace(0, "Class_Terminate", "Class_Terminate {ScriptClass}", NicName, "info");
+            try {
+                LateBinding.LateCall(this, null, "onTerminate", new object[] {}, null, null);
+                //((object)this).onTerminate();
+            }
+            catch {
+            }
+        }
+        
+        public void Dispose()
+        {
+            try {
+                ZZ.releaseMyRef();
+            }
+            catch {
+            }
+        }
+        
+//    }
+//}

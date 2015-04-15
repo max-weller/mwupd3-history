@@ -1,0 +1,331 @@
+
+#Implements IAddinConnect
+#Para DebugMode Internal
+#Para SilentMode true
+
+#Reference System.Windows.Forms.dll
+#Reference System.Data.dll
+#Reference System.Drawing.dll
+#Reference WeifenLuo.WinFormsUI.Docking.dll
+#Reference TenTec.Windows.iGridLib.iGrid.dll
+#Reference siaIDEMain.dll
+#Reference ScintillaNet.dll
+
+#Imports System.Windows.Forms
+#Imports System.Text.RegularExpressions
+#Imports System.Data
+#Imports System.Drawing
+#Imports System.Net
+#Imports ScriptIDE.Core
+#Imports ScriptIDE.ScriptHost
+#Imports ScriptIDE.ScriptWindowHelper
+#Imports Tentec.Windows.iGridLib
+
+
+
+
+#AddinData
+<AddIn name        = "Sync"
+       displayname = "Sync"
+       author      = "Max Weller"
+       url         = "http://wiki-lab.net"
+       description = ""
+       icon        = "">
+  
+  <Manifest>
+    <Identity name="Sync" version = "1.0.0.0"/>
+  </Manifest>
+  
+  <Path name="/Workspace/ToolbarCommands">
+    <Command id="Extras.SyncLock" text="Lock file" icon="http://static.teamwiki.net/img/icons/oxygen/16x16/actions/flag_green.png" />
+    <Command id="Extras.SyncRelease" text="Release file" icon="http://static.teamwiki.net/img/icons/oxygen/16x16/actions/flag_red.png" />
+    
+  </Path>
+    
+  <Path name="/Workspace/FileCommands/lua.wlua">
+    
+  </Path>
+</AddIn>
+#EndData
+
+'Const syncLockColor as string = "#11ff44"
+Const syncLockColor as string = "#ff1144"
+
+Const EV_res1 = 0
+Const EV_res2 = 1
+Const EV_timestamp = 2
+Const EV_diz = 3
+Const EV_username = 4
+Const EV_res3 = 5
+Const EV_res4 = 6
+Const EV_event = 7
+Const EV_offset = 8
+
+
+Dim WithEvents IDE As IIDEHelper
+Dim WithEvents currentTab As ScriptIDE.Main.frmDC_scintilla
+Dim WithEvents currentEditor As ScintillaNet.Scintilla
+
+Dim t As system.threading.Thread
+
+Dim listenerUri As Uri = New Uri("http://push.0815team.de:40080/subscribe?id=scriptIDE")
+Public listenerRequest As HttpWebRequest
+Dim etag as string="", modsince AS String=""
+
+Dim cancelRequests As Boolean = false
+
+sub addHeader(rq As WebRequest, name as string, value as string)
+  Dim method as System.Reflection.MethodInfo = GetType(System.Net.WebHeaderCollection).GetMethod("AddWithoutValidate", System.Reflection.BindingFlags.Instance or System.Reflection.BindingFlags.NonPublic)
+  method.Invoke(rq.Headers, new object(){name,value})
+end sub
+
+'' :function geturl(url as Uri,byref etag as string,byref modsince as string) as string
+''   dim rq = Net.WebRequest.Create(url)
+''   rq.Timeout = System.Threading.Timeout.Infinite
+''   rq.Method = "GET"
+''   rq.ConnectionGroupName = "syncLongpollingRequest"
+''   rq.KeepAlive = false
+''   addHeader(rq, "If-None-Match", etag)
+''   addHeader(rq, "If-Modified-Since", modsince)
+''   Try
+''     dim resp = rq.GetResponse()
+''     dim str = New System.IO.StreamReader(DirectCast(resp.GetResponseStream(),System.IO.Stream))
+''     dim res = str.ReadToEnd()
+''     etag = resp.Headers("Etag")
+''     modsince = resp.Headers("Last-Modified")
+''     str.Close()
+''     resp.Close()
+''     Trace "fini",res
+''     return res
+''   Catch ex As Exception
+''     Trace "achtung"
+''     Trace "Error in geturl", ex.Message
+''     return nothing
+''   End Try
+'' end function
+'' 
+'' Sub listenerThread()
+''   dim etag as string="", modsince as string=""
+''   while true
+''     dim result = geturl(listenerUri, etag, modsince)
+''     If not string.isNullOrEmpty(result) Then
+''       Trace "no result - timeout"
+''     Else
+''       
+''       Dim eventInfo() AS String = Split(result, "|")
+''       If eventInfo.Length < EV_offset Then
+''         Trace "Invalid eventInfo!!!", result, "warn"
+''       Else
+''         Trace "onEvent:", result, "dump"
+''         onEvent(eventInfo)
+''       End If
+''     End If
+''   end while
+'' end sub
+'' 
+'' 
+
+:Sub startListening()
+  Trace "startListening"
+  listenerRequest = Net.WebRequest.Create(listenerUri)
+  listenerRequest.Timeout = System.Threading.Timeout.Infinite
+  listenerRequest.Method = "GET"
+  'listenerRequest.ConnectionGroupName = "syncLongpollingRequest"
+  listenerRequest.KeepAlive = false
+  addHeader(listenerRequest, "If-None-Match", etag)
+  addHeader(listenerRequest, "If-Modified-Since", modsince)
+  listenerRequest.BeginGetResponse(AddressOf onResponseCallback, Nothing)
+End Sub
+
+:Sub onResponseCallback(asynchronousResult As IAsyncResult)
+  Try
+    Dim response As HttpWebResponse = CType(listenerRequest.EndGetResponse(asynchronousResult), HttpWebResponse)
+    
+    dim str As New System.IO.StreamReader(DirectCast(response.GetResponseStream(),System.IO.Stream))
+    dim result As String = str.ReadToEnd()
+    etag = response.Headers("Etag")
+    modsince = response.Headers("Last-Modified")
+    str.Close()
+    response.Close()
+    
+    Dim eventInfo() AS String = Split(result, "|")
+    If eventInfo.Length < EV_offset Then
+      Trace "Invalid eventInfo!!!", result, "warn"
+    Else
+      Trace "onEvent:", result, "dump"
+      onEvent(eventInfo)
+    End If
+    
+    Trace "etag:"+etag,modsince
+    
+  Catch ex As Exception
+    Trace "Exception in onResponseCallback", ex.Message
+    'Trace "Listening stopped","","shutdown"
+  End Try
+  
+  If Not cancelRequests Then startListening()
+End Sub
+
+Sub InvalidateOpenedFiles(wnd)
+  
+  Trace "111 InvalidateOpenedFiles"
+  If wnd Is Nothing Then wnd = IDE.getInternalDockWindow("Addin|##|siaIDEMain|##|OpenedFiles")
+  If wnd.InvokeRequired Then
+    wnd.Invoke(New Threading.ParameterizedThreadStart(AddressOf InvalidateOpenedFiles), wnd)
+  Else
+    Trace "wnd is", Iif(wnd is nothing,"nothing","ok")
+    Trace "wnd=", wnd.name
+    wnd.Refresh()
+  End IF
+End Sub
+
+Sub SendEvent(eventName As String, ParamArray eventParam() As String)
+  eventName = Replace(Replace(eventName, "\", "\\"), "|", "\s")
+  For i As Integer = 0 To eventParam.Length - 1
+    eventParam(i) = Replace(Replace(eventParam(i), "\", "\\"), "|", "\s")
+  Next
+  Dim r as string = _
+    zz.http_post("http://push.0815team.de:40080/my_publish_endpoint?id=scriptIDE", _
+       "||" & Now.Ticks & "|" & IDE.DIZ & "|" & getUserName() _
+     & "||" & "|" & eventName & "|" & Join(eventParam, "|"))
+  Trace "posted Event", r
+  
+End Sub
+
+Function getUserName() As String
+  return System.Security.Principal.WindowsIdentity.GetCurrent().Name
+End Function
+
+Sub onEvent(eventInfo() AS String)
+  Select Case eventInfo(EV_event)
+    Case "SyncLock"
+      setColorBox(eventInfo(EV_offset), eventInfo(EV_offset + 1), True)
+      
+    Case "SyncRelease"
+      setColorBox(eventInfo(EV_offset), eventInfo(EV_offset + 1), False)
+      
+    Case "FileSaved"
+      onFileChanged(eventInfo(EV_offset), eventInfo(EV_username), nothing)
+      
+  End Select
+  
+  Trace "before InvalidateOpenedFiles"
+  InvalidateOpenedFiles(nothing)
+  Trace "after InvalidateOpenedFiles"
+  
+End Sub
+
+delegate Sub donFileChanged(url As String,diz As String,tab AS IDockContentForm)
+Sub onFileChanged(url As String,diz As String,tab AS IDockContentForm)
+  If diz = getUserName() Then Return
+  If tab Is Nothing Then tab = IDE.GetTabByURL(url)
+  If tab Is Nothing Then
+    Trace "ERR in onFileChanged (tab not found)", url, "dump"
+    Exit Sub
+  End If
+  If DirectCast(tab, Form).InvokeRequired Then
+    DirectCast(tab, Form).Invoke(New donFileChanged(AddressOf onFileChanged), url, diz, tab)
+  Else
+    If tab.Dirty Then
+      If MsgBox("ACHTUNG - die Datei " + url + " wurde von " + diz + " verändert. Jetzt neuladen?", vbExclamation + vbYesNo) = vbNo Then Return
+    End If
+    tab.onRead
+  End If
+End Sub
+
+Sub setColorBox(url As String, colorCode As String, state As Boolean)
+  Dim tab AS IDockContentForm = IDE.GetTabByURL(url)
+  If tab Is Nothing Then
+    Trace "Unable to update colorboxes (tab not found)", url, "dump"
+    Exit Sub
+  End If
+  Dim v() As String = Split(tab.Parameters("ColorBoxes"), ",")
+  Dim al As New System.Collections.ArrayList : al.AddRange(v)
+  If al.Count = 1 AndAlso String.isNullOrEmpty(al(0)) Then al.RemoveAt(0)
+  If al.Contains(colorCode) Then
+    If state = false Then al.Remove(colorCode)
+  Else
+    If state = true Then al.Add(colorCode)
+  End If
+  tab.Parameters("ColorBoxes") = Join(al.ToArray, ",")
+End Sub
+
+Sub cls_IDEHelper_DocumentTabActivated(Tab As System.Object, Key As String) Handles IDE.DocumentTabActivated
+  If currentTab IsNot Nothing Then
+    SendEvent("InactivateTab", Key)
+  End If
+  If TypeOf Tab Is ScriptIDE.Main.frmDC_scintilla Then
+    currentTab = Tab
+    currentEditor = currentTab.RTF
+    SendEvent("ActivateTab", Key)
+  Else
+    currentTab = Nothing
+  End If
+End Sub
+
+Sub IIDEHelper_DocumentAfterSave(Key As String) Handles IDE.DocumentAfterSave
+  SendEvent("FileSaved", Key)
+End Sub
+
+Sub Scintilla_TextChanged(sender As System.Object, e As System.EventArgs) Handles currentEditor.TextChanged
+  If currentTab.Dirty = false Then
+    SendEvent("TextChanged", currentTab.Hash)
+  End If
+End Sub
+
+'-- initialization
+
+Public Sub Connect(ByVal application As Object, ByVal connectMode As Core.ConnectMode, ByVal addInInst As Core.AddinInstance, ByRef custom As Object) Implements Core.IAddinConnect.Connect
+  IDE = Main.cls_IDEHelper.Instance
+  Trace "Connect ???"
+
+  '--addin_path("/Workspace/ToolbarCommands", "Command", {id = "Testaddin.Test", text = "Testbutton"})
+  '--addin_path("/Workspace/FileCommands/txt", "ToolButton", {refid = "Testaddin.Test"})
+  
+  Trace "sync started", "", "ini"
+  
+  '' t = New System.Threading.Thread(AddressOf listenerThread)
+  '' 
+  '' t.Start()
+  
+  startListening()
+End Sub
+
+Public Sub Disconnect(ByVal removeMode As Core.DisconnectMode, ByRef custom As Object) Implements Core.IAddinConnect.Disconnect
+  Trace "Disconnect ???"
+  IDE = Nothing
+  currentTab = Nothing
+  currentEditor = Nothing
+  'Net.ServicePointManager.FindServicePoint(listenerUri).CloseConnectionGroup("syncLongpollingRequest")
+  't.Abort()
+  cancelRequests = true
+  listenerRequest.Abort()
+End Sub
+
+Public Function GetAddinWindow(ByVal PersistString As String) As Form Implements IAddinConnect.GetAddinWindow
+End Function
+
+Public Sub OnNavigate(ByVal kind As Core.NavigationKind, ByVal source As String, ByVal command As String, ByVal args As Object, ByRef returnValue As Object) Implements Core.IAddinConnect.OnNavigate
+  Select Case command
+    Case "Extras.SyncLock"
+      SendEvent("SyncLock", DirectCast(IDE.getActiveTab(), IDockContentForm).Hash, syncLockColor)
+      
+    Case "Extras.SyncRelease"
+      SendEvent("SyncRelease", DirectCast(IDE.getActiveTab(), IDockContentForm).Hash, syncLockColor)
+      
+  End Select
+End Sub
+
+Public Sub OnAddinUpdate(ByVal addinChanged As String, ByRef custom As Object) Implements Core.IAddinConnect.OnAddinUpdate
+End Sub
+
+Public Sub OnBeforeShutdown(ByRef cancel As Boolean, ByRef custom As Object) Implements Core.IAddinConnect.OnBeforeShutdown
+  Trace "OnBeforeShutdown ???"
+End Sub
+
+Public Sub OnStartupComplete(ByRef custom As Object) Implements Core.IAddinConnect.OnStartupComplete
+End Sub
+
+
+
+

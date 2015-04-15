@@ -1,0 +1,61 @@
+using scriptHostLib;
+
+public class ProgramMain
+{
+    public static ScriptHost sH;
+    //Public Shared iproc As sys_interproc
+    public static cls_scriptHelper myZZ;
+    
+    public static void Main(string[] args)
+    {
+        sH = ScriptHost.Instance;
+        sH.HighlightLineRequested += sH_HighlightLineRequested;
+        sH.BreakModeChanged += sH_BreakModeChanged;
+        
+        sH.setIdeHelper(cls_IDEHelperMini.GetSingleton());
+        cls_IDEHelperMini.GetSingleton().initGlobObject(cls_IDEHelperMini.GetSingleton().getSettingsFolder() + "scriptPara\\{ScriptClass}.para.txt");
+        q_scriptClass.{ScriptClass} @ref = new q_scriptClass.{ScriptClass}();
+        sH.initDebugMode("{ScriptClass}", @ref);
+        
+        // Initialize ScriptHelper
+        myZZ = new cls_scriptHelper();
+        myZZ._scriptClassName = "{ScriptClass}";
+        @ref.zz_setHlpObject(myZZ);
+        
+        // Initialize Breakpoints
+        @ref.zz_BBreset(1000);
+        string[] bbs = ((sys_interproc)myZZ.InterProc).GetData("siaCodeCompiler", "_Debug_QueryBreakpoints", "{ScriptClass}", 5000).Split(',');
+        myZZ.trace(0, "", "BBcount:", bbs.Length, "info");
+        foreach (string bb in bbs) {
+            if (!string.IsNullOrEmpty(bb)) @ref.zz_BBsetLine(System.Convert.ToInt32(bb), true); 
+        }
+        
+        @ref.AutoStart();
+        
+        if (cls_IDEHelperMini.GetSingleton().tbScriptWin.Count > 0) {
+            System.Windows.Forms.Form frm = null;
+            foreach (System.Windows.Forms.Form val in cls_IDEHelperMini.GetSingleton().tbScriptWin.Values) {
+                frm = val;
+                break; // TODO: might not be correct. Was : Exit For
+            }
+            myZZ.trace(0, "", "Form:", frm.ToString(), "info");
+            System.Windows.Forms.Application.Run(frm);
+        }
+    }
+    
+    private static void  // ERROR: Handles clauses are not supported in C#
+sH_HighlightLineRequested(string className, string functionName, int lineNumber, scriptHostLib.HighlightLineReason reason)
+    {
+            
+        ((sys_interproc)myZZ.InterProc).SendCommand("siaCodeCompiler", "_Debug_HighlightLineRequested", className + "|##|" + functionName + "|##|" + lineNumber + "|##|" + reason + "|##|");
+    }
+    
+    private static void  // ERROR: Handles clauses are not supported in C#
+sH_BreakModeChanged(ref string breakState)
+    {
+            
+        ((sys_interproc)myZZ.InterProc).SendCommand("siaCodeCompiler", "_Debug_BreakModeChanged", breakState);
+    }
+    
+    
+}

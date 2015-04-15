@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaLanguageConfig filefilter="*.conf;*.htaccess">
+  <Language>html</Language>
+  <LexerName>conf</LexerName>
+
+  <SCStyle id="0" fgcolor="#808080" bgcolor="#FFFFFF" /> <!--'whitespace-->
+  <SCStyle id="1" fgcolor="#007F00" bgcolor="#FFFFFF" style="italic" /> <!-- 'comment-->
+  <SCStyle id="2" fgcolor="#007F7F" bgcolor="#FFFFFF" /> <!-- 'number-->
+  <SCStyle id="3" fgcolor="#000000" bgcolor="#A0FFA0" /> <!-- 'Apache Runtime Directive (SCE_CONF_DIRECTIVE)-->
+  <SCStyle id="4" fgcolor="#000000" bgcolor="#FFE0FF" /> <!-- 'extensions (like .gz, .tgz, .html) (SCE_CONF_EXTENSION)-->
+  <SCStyle id="5" fgcolor="#000000" bgcolor="#FFE0FF" /> <!-- 'parameters for Apache Runtime directives (SCE_CONF_PARAMETER)-->
+  <SCStyle id="6" fgcolor="#7F007F" bgcolor="#FFFFFF" /> <!-- 'Double quoted string (SCE_CONF_STRING)-->
+  <SCStyle id="7" fgcolor="#000000" bgcolor="#FFFFFF" style="bold" /> <!-- 'Operators (SCE_CONF_OPERATOR)-->
+  <SCStyle id="8" fgcolor="#007F7F" bgcolor="#FFFFFF" style="bold" /> <!-- 'IP address (SCE_CONF_IP)-->
+  <SCStyle id="9" fgcolor="#00007F" bgcolor="#FFFFFF" style="bold" /> <!-- 'identifier (SCE_CONF_IDENTIFIER)-->
+
+  <Keywords id="0">acceptmutex acceptpathinfo accessconfig accessfilename action addalt addaltbyencoding addaltbytype addcharset adddefaultcharset adddescription addencoding addhandler addicon addiconbyencoding addiconbytype addinputfilter addlanguage addmodule addmoduleinfo addoutputfilter addoutputfilterbytype addtype agentlog alias aliasmatch all allow allowconnect 
+  allowencodedslashes allowoverride anonymous anonymous_authoritative anonymous_logemail anonymous_mustgiveemail anonymous_nouserid anonymous_verifyemail assignuserid authauthoritative authdbauthoritative authdbgroupfile authdbmauthoritative authdbmgroupfile authdbmtype authdbmuserfile authdbuserfile authdigestalgorithm authdigestdomain authdigestfile authdigestgroupfile authdigestnccheck 
+  authdigestnonceformat authdigestnoncelifetime authdigestqop authdigestshmemsize authgroupfile authldapauthoritative authldapbinddn authldapbindpassword authldapcharsetconfig authldapcomparednonserver authldapdereferencealiases authldapenabled authldapfrontpagehack authldapgroupattribute authldapgroupattributeisdn authldapremoteuserisdn authldapurl authname authtype authuserfile bindaddress 
+  browsermatch browsermatchnocase bs2000account bufferedlogs cachedefaultexpire cachedirlength cachedirlevels cachedisable cacheenable cacheexpirycheck cachefile cacheforcecompletion cachegcclean cachegcdaily cachegcinterval cachegcmemusage cachegcunused cacheignorecachecontrol cacheignoreheaders cacheignorenolastmod cachelastmodifiedfactor cachemaxexpire cachemaxfilesize cacheminfilesize 
+  cachenegotiateddocs cacheroot cachesize cachetimemargin cgimapextension charsetdefault charsetoptions charsetsourceenc checkspelling childperuserid clearmodulelist contentdigest cookiedomain cookieexpires cookielog cookiename cookiestyle cookietracking coredumpdirectory customlog dav davdepthinfinity davlockdb davmintimeout defaulticon defaultlanguage defaulttype define deflatebuffersize 
+  deflatecompressionlevel deflatefilternote deflatememlevel deflatewindowsize deny directory directoryindex directorymatch directoryslash documentroot dumpioinput dumpiooutput enableexceptionhook enablemmap enablesendfile errordocument errorlog example expiresactive expiresbytype expiresdefault extendedstatus extfilterdefine extfilteroptions fancyindexing fileetag files filesmatch forcelanguagepriority 
+  forcetype forensiclog from group header headername hostnamelookups identitycheck ifdefine ifmodule imapbase imapdefault imapmenu include indexignore indexoptions indexorderdefault isapiappendlogtoerrors isapiappendlogtoquery isapicachefile isapifakeasync isapilognotsupported isapireadaheadbuffer keepalive keepalivetimeout languagepriority ldapcacheentries ldapcachettl ldapconnectiontimeout ldapopcacheentries 
+  ldapopcachettl ldapsharedcachefile ldapsharedcachesize ldaptrustedca ldaptrustedcatype limit limitexcept limitinternalrecursion limitrequestbody limitrequestfields limitrequestfieldsize limitrequestline limitxmlrequestbody listen listenbacklog loadfile loadmodule location locationmatch lockfile logformat loglevel maxclients maxkeepaliverequests maxmemfree maxrequestsperchild maxrequestsperthread maxspareservers 
+  maxsparethreads maxthreads maxthreadsperchild mcachemaxobjectcount mcachemaxobjectsize mcachemaxstreamingbuffer mcacheminobjectsize mcacheremovalalgorithm mcachesize metadir metafiles metasuffix mimemagicfile minspareservers minsparethreads mmapfile modmimeusepathinfo multiviewsmatch namevirtualhost nocache noproxy numservers nwssltrustedcerts nwsslupgradeable options order passenv pidfile port protocolecho proxy 
+  proxybadheader proxyblock proxydomain proxyerroroverride proxyiobuffersize proxymatch proxymaxforwards proxypass proxypassreverse proxypreservehost proxyreceivebuffersize proxyremote proxyremotematch proxyrequests proxytimeout proxyvia qsc readmename redirect redirectmatch redirectpermanent redirecttemp refererignore refererlog removecharset removeencoding removehandler removeinputfilter removelanguage 
+  removeoutputfilter removetype requestheader require resourceconfig rewritebase rewritecond rewriteengine rewritelock rewritelog rewriteloglevel rewritemap rewriteoptions rewriterule rlimitcpu rlimitmem rlimitnproc satisfy scoreboardfile script scriptalias scriptaliasmatch scriptinterpretersource scriptlog scriptlogbuffer scriptloglength scriptsock securelisten sendbuffersize serveradmin serveralias serverlimit 
+  servername serverpath serverroot serversignature servertokens servertype setenv setenvif setenvifnocase sethandler setinputfilter setoutputfilter singlelisten ssiendtag ssierrormsg ssistarttag ssitimeformat ssiundefinedecho sslcacertificatefile sslcacertificatepath sslcarevocationfile sslcarevocationpath sslcertificatechainfile sslcertificatefile sslcertificatekeyfile sslciphersuite sslengine sslmutex ssloptions 
+  sslpassphrasedialog sslprotocol sslproxycacertificatefile sslproxycacertificatepath sslproxycarevocationfile sslproxycarevocationpath sslproxyciphersuite sslproxyengine sslproxymachinecertificatefile sslproxymachinecertificatepath sslproxyprotocol sslproxyverify sslproxyverifydepth sslrandomseed sslrequire sslrequiressl sslsessioncache sslsessioncachetimeout sslusername sslverifyclient sslverifydepth startservers 
+  startthreads suexecusergroup threadlimit threadsperchild threadstacksize timeout transferlog typesconfig unsetenv usecanonicalname user userdir virtualdocumentroot virtualdocumentrootip virtualhost virtualscriptalias virtualscriptaliasip win32disableacceptex xbithack"
+  </Keywords>
+
+
+</ScintillaLanguageConfig>
